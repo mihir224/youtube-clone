@@ -1,0 +1,29 @@
+#nav-bar{
+    background-color: #222222;
+    width:16vw;
+    color: white;
+    overflow-x: hidden;
+    max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+#nav-bar>ul{
+    padding-left:25px;
+}
+#nav-bar>ul>li{
+    list-style: none;
+    font-size: 15px;
+    padding:10px 0;
+}
+.nav-icons{
+    vertical-align:bottom;
+    padding-right:15px;
+}
+hr{
+    text-align: middle;
+    width: 90%;
+    opacity: 0.3; 
+}
+
+
+  

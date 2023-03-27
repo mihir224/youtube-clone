@@ -1,0 +1,15 @@
+body{
+  margin: 0;
+  background-color: #222222;
+  font-family: "Montserrat";
+}
+#body-section{
+  display:flex;
+}
+#cards{
+  display:flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
