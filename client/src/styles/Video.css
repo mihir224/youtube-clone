@@ -1,0 +1,101 @@
+#video-div{
+    display: flex;
+    justify-content: center;
+}
+
+#video-section{
+    background-color: #222222;
+    color: white;
+    width: 900px;
+}
+
+#video-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+#channel-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:27.5%;
+}
+.sub-btn{
+    display: flex;
+    align-items: center;
+    background-color:#a0a0a02f;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+}
+
+.vid-btns{
+    background-color:#a0a0a02f;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    color: white;
+    padding:5px 8px;
+    font-size: 14px;
+}
+#like{
+    border-top-right-radius: 0;
+    border-right: 1px solid white;
+
+    border-bottom-right-radius:0 ;
+}
+#dislike{
+    border-top-left-radius: 0;
+    border-bottom-left-radius:0 ;
+}
+#vid-icons{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+.vid-icon{
+    vertical-align: middle;
+    padding-right: 4px;
+}
+#desc{
+    background-color:#a0a0a02f;
+    border-radius:10px ;
+    padding:15px;
+}
+#info{
+    display: flex;
+    width:18%;
+    justify-content: space-between;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+#comment{
+    display: flex;
+    padding-top: 10px;
+}
+
+#comment-ip{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+textarea:focus-visible{
+    outline: none;
+    outline: 1px solid white;
+    border-radius: 5px;
+}
+
+#cmt-btns{
+    align-self: flex-end;
+    padding-top:10px ;
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
+
+h2,h3,p{
+    padding: 0;
+    margin: 0;
+}
