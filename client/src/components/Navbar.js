@@ -20,30 +20,30 @@ function Navbar(){
     return (
         <div id="nav-bar">
         <ul className="nav-list">
-            <li><HomeIcon className="nav-icons"/> Home</li>
-            <li><ExploreRoundedIcon className="nav-icons"/> Explore</li>
-            <li><SubscriptionsIcon className="nav-icons"/> Subscriptions</li>
+            <li><HomeIcon  className="nav-icons"/> <span>Home</span></li>
+            <li><ExploreRoundedIcon className="nav-icons"/> <span>Explore</span></li>
+            <li><SubscriptionsIcon className="nav-icons"/><span> Subscriptions</span></li>
         </ul>
         <hr/>
         <ul className="nav-list">
-            <li><VideoLibraryRoundedIcon className="nav-icons"/> Library</li>
-            <li><HistoryRoundedIcon className="nav-icons"/> History</li>
+            <li><VideoLibraryRoundedIcon className="nav-icons"/> <span>Library</span></li>
+            <li><HistoryRoundedIcon className="nav-icons"/> <span>History</span></li>
         </ul>
         <hr/>
         <ul className="nav-list">
-            <li><LibraryMusicRoundedIcon className="nav-icons"/> Music</li>
-            <li><SportsBasketballRoundedIcon className="nav-icons"/> Sports</li>
-            <li><SportsEsportsRoundedIcon className="nav-icons"/> Gaming</li>
-            <li><MovieCreationRoundedIcon className="nav-icons"/> Movies</li>
-            <li><ArticleRoundedIcon className="nav-icons"/> News</li>
-            <li><LiveTvRoundedIcon className="nav-icons"/> Live</li>
+            <li><LibraryMusicRoundedIcon className="nav-icons"/> <span>Music</span></li>
+            <li><SportsBasketballRoundedIcon className="nav-icons"/> <span>Sports</span></li>
+            <li><SportsEsportsRoundedIcon className="nav-icons"/> <span>Gaming</span></li>
+            <li><MovieCreationRoundedIcon className="nav-icons"/> <span>Movies</span></li>
+            <li><ArticleRoundedIcon className="nav-icons"/> <span>News</span></li>
+            <li><LiveTvRoundedIcon className="nav-icons"/> <span>Live</span></li>
         </ul>
         <hr/>
         <ul className="nav-list">
-            <li><SettingsRoundedIcon className="nav-icons"/> Settings</li>
-            <li><FlagRoundedIcon className="nav-icons"/> Report</li>
-            <li><HelpRoundedIcon className="nav-icons"/> Help</li>
-            <li><SettingsBrightnessRoundedIcon className="nav-icons"/> Display </li>
+            <li><SettingsRoundedIcon className="nav-icons"/> <span>Settings</span></li>
+            <li><FlagRoundedIcon className="nav-icons"/> <span>Report</span></li>
+            <li><HelpRoundedIcon className="nav-icons"/> <span>Help</span></li>
+            <li><SettingsBrightnessRoundedIcon className="nav-icons"/> <span>Display </span></li>
         </ul>
         </div>
     )

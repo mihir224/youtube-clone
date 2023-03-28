@@ -3,12 +3,16 @@ body{
   background-color: #222222;
   font-family: "Montserrat";
 }
+button{
+  font-family: "Montserrat";
+}
 #body-section{
   display:flex;
+  justify-content: center;
 }
 #cards{
   display:flex;
-  width: 100%;
+  width: 90%;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding-top: 40px;
