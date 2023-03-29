@@ -12,7 +12,7 @@ function Video(){
         display:"block",
         border:"none",
         width:"97%",
-        padding:"3px 5px",
+        padding:"10px 5px",
         margin:"0",
         resize:"none",
         overflow:"hidden",
@@ -36,8 +36,8 @@ function Video(){
         <div id="video-section">
             <div id="video">
                 <iframe 
-                    width="900" 
-                    height="420" 
+                    width="800" 
+                    height="440" 
                     src="https://www.youtube.com/embed/yIaXoop8gl4" 
                     title="YouTube video player" 
                     frameborder="0" 
@@ -78,7 +78,7 @@ function Video(){
                 as opposed to using 'Content here, content here', making it look like readable English. 
                 Many desktop publishing packages</p>
             </div>
-            <h3 style={{padding:"20px 0", fontWeight:"400"}}>Number of comments</h3>
+            <h3 style={{padding:"15px 0", fontWeight:"400"}}>Number of comments</h3>
             <div id="comment">
                 <div id="channel-dp">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
@@ -95,23 +95,183 @@ function Video(){
                         }}></textarea>
                     </div>
                     <div id="cmt-btns">
-                        <button className="vid-btns">Cancel</button>
-                        <button className="vid-btns">Comment</button>
+                        <button className="vid-btns" type="button">Cancel</button>
+                        <button className="vid-btns" type="button">Comment</button>
                     </div>
                 </div>            
             </div>
+            <div className="comments">
+            <div id="channel-dp">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+            </div> 
+            <div id="cmnt-body">
+                <p>user - when</p>
+                <p>It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout.</p>
+                <div id="cmnts-btn">
+                    <ThumbUpOffAltIcon/>
+                    <ThumbDownOffAltIcon/>
+                    <p><span>reply</span></p>
+                </div>
+            </div>
+            </div>
+            <div className="comments">
+            <div id="channel-dp">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+            </div> 
+            <div id="cmnt-body">
+                <p>user - when</p>
+                <p>It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout.</p>
+                <div id="cmnts-btn">
+                    <ThumbUpOffAltIcon/>
+                    <ThumbDownOffAltIcon/>
+                    <p><span>reply</span></p>
+                </div>
+            </div>
+            </div>
+            <div className="comments">
+            <div id="channel-dp">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+            </div> 
+            <div id="cmnt-body">
+                <p>user - when</p>
+                <p>It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout.</p>
+                <div id="cmnts-btn">
+                    <ThumbUpOffAltIcon/>
+                    <ThumbDownOffAltIcon/>
+                    <p><span>reply</span></p>
+                </div>
+            </div>
+            </div>
+            <div className="comments">
+            <div id="channel-dp">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+            </div> 
+            <div id="cmnt-body">
+                <p>user - when</p>
+                <p>It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout.</p>
+                <div id="cmnts-btn">
+                    <ThumbUpOffAltIcon/>
+                    <ThumbDownOffAltIcon/>
+                    <p><span>reply</span></p>
+                </div>
+            </div>
+            </div>
+            <div className="comments">
+            <div id="channel-dp">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+            </div> 
+            <div id="cmnt-body">
+                <p>user - when</p>
+                <p>It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout.</p>
+                <div id="cmnts-btn">
+                    <ThumbUpOffAltIcon/>
+                    <ThumbDownOffAltIcon/>
+                    <p><span>reply</span></p>
+                </div>
+            </div>
+            </div>
+            <div className="comments">
+            <div id="channel-dp">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+            </div> 
+            <div id="cmnt-body">
+                <p>user - when</p>
+                <p>It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout.</p>
+                <div id="cmnts-btn">
+                    <ThumbUpOffAltIcon/>
+                    <ThumbDownOffAltIcon/>
+                    <p><span>reply</span></p>
+                </div>
+            </div>
+            </div>
         </div>
         <div id="suggestions">
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
-        <p>ok</p>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
+        <div className="suggestion">
+            <div id="thumbnail">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
+            </div> 
+            <div id="s-txt">
+                <h3>It is a long established fact that a reader will be distracted</h3>
+                <p>Channel</p>
+                <p>Views • When</p>
+            </div>
+        </div>
         </div>
         </div>
     )
