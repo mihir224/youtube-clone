@@ -1,6 +1,6 @@
 #video-div{
     display: flex;
-    justify-content: center;
+  padding: 20px;
 }
 
 #video-section{
@@ -8,18 +8,26 @@
     color: white;
     width: 900px;
 }
-
+#video-title{
+    font-weight: 500;
+    font-size: 22px;
+    padding:5px 0;
+}
 #video-body{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
 }
+#channel-desc{
+    font-size: 15px;
+    padding-right: 20px;
+}
 #channel-details{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:27.5%;
+    width:34%;
 }
 .sub-btn{
     display: flex;
@@ -28,6 +36,7 @@
     border: 2px solid transparent;
     border-radius: 20px;
     color: white;
+    padding:5px 15px;
     font-size: 14px;
 }
 
@@ -36,7 +45,7 @@
     border: 2px solid transparent;
     border-radius: 20px;
     color: white;
-    padding:5px 8px;
+    padding:5px 15px;
     font-size: 14px;
 }
 #like{
@@ -52,7 +61,7 @@
 #vid-icons{
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 42%;
 }
 .vid-icon{
     vertical-align: middle;
@@ -62,6 +71,7 @@
     background-color:#a0a0a02f;
     border-radius:10px ;
     padding:15px;
+    font-size: 14px;
 }
 #info{
     display: flex;
@@ -91,10 +101,38 @@ textarea:focus-visible{
     align-self: flex-end;
     padding-top:10px ;
     display: flex;
-    width: 20%;
+    width: 26%;
     justify-content: space-between;
 }
-
+.comments{
+    display: flex;
+    justify-content: space-between;
+    padding-top:20px;
+}
+#cmnt-body{
+    width: 94%;
+    font-size: 15px;
+  
+}
+#cmnts-btn{
+    display:flex;
+    width: 15%;
+    justify-content: space-between;
+    padding-top: 5px;
+}
+.suggestion{
+    display: flex;
+    color: white;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-bottom:20px ;
+}
+#s-txt{
+    padding-left: 10px;
+}
+#s-txt>h3{
+    padding-bottom: 5px;
+}
 h2,h3,p{
     padding: 0;
     margin: 0;

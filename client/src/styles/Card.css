@@ -3,9 +3,10 @@
     border-radius: 12px;
     height: 40vh;
     color: white;
+    padding-bottom:10px;
 }
 #thumbnail>img{
-    width: 100%;
+    /* width: 100%; */
     border-radius: 12px;
 }
 #card-body{
@@ -24,8 +25,9 @@
 
 #video-details>h3{
     margin:0;
-    padding-bottom:5px;
+    padding-bottom:4px;
     font-size: 18px;
+
 }
 #video-details>p{
     margin:0;
