@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Navbar.css";
+import { Link } from "react-router-dom"
 import HomeIcon from '@mui/icons-material/Home';
 import ExploreRoundedIcon from '@mui/icons-material/ExploreRounded';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
@@ -20,7 +21,7 @@ function Navbar(){
     return (
         <div id="nav-bar">
         <ul className="nav-list">
-            <li><HomeIcon  className="nav-icons"/> <span>Home</span></li>
+            <Link to="/"><li><HomeIcon  className="nav-icons"/> <span>Home</span></li></Link>
             <li><ExploreRoundedIcon className="nav-icons"/> <span>Explore</span></li>
             <li><SubscriptionsIcon className="nav-icons"/><span> Subscriptions</span></li>
         </ul>

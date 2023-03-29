@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Searchbar.css";
+import { Link } from "react-router-dom"
 import logo from "../images/logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,9 +12,9 @@ function Searchbar(){
         <div id="search-bar">
             <div id="logo-container">
                 <div id="hamburger"><MenuIcon id="icon"/></div>
-                <div id="logo">
+                <Link to="/"><div id="logo">
                     <img src={logo} height="25" width="40"></img><h2>YouTube</h2>
-                </div>
+                </div></Link>
             </div>
             <div id="search-area">
             <input id="search" type="search" placeholder="Search"></input>
