@@ -1,22 +1,27 @@
 import './App.css';
 import Searchbar from './components/Searchbar';
 import Navbar from './components/Navbar';
-import Card from './components/Card';
+import Home from './components/Home';
 import Video from './components/Video';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-    {/* <Searchbar/>
+    <Searchbar/>
     <div id="body-section">
     <Navbar/>
-    <div id="cards">
-    <Card/>
-    
+    <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="video">
+        <Route path=":id" element={<Video/>}></Route>
+      </Route>
+    </Routes>
     </div>
-    </div> */}
-  <Video/>
     </div>
+    </BrowserRouter>
   );
 }
 

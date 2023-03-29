@@ -3,6 +3,13 @@ body{
   background-color: #222222;
   font-family: "Montserrat";
 }
+a{
+  text-decoration: none;
+  color: white;
+  list-style: none;
+  font-size: 14px;
+
+}
 button{
   font-family: "Montserrat";
 }
@@ -13,7 +20,7 @@ button{
 #cards{
   display:flex;
   width: 90%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
-  padding-top: 40px;
+  padding-top: 28px;
 }
