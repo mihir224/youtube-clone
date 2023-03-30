@@ -1,0 +1,26 @@
+#sign-in{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    align-self: center;
+    margin-top: 70px;
+    height: 30em;
+    border:2px solid rgba(255, 255, 255, 0.103);
+    border-radius: 4px;
+    width: 30vw;
+    box-shadow: 0px 0px 1px 1px rgba(136, 136, 136, 0.397); /*any color you want*/
+    color: white;
+}
+#sign-in>input{
+    border:1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: inherit;
+    padding: 5px;
+}
+#sign-in>button{
+    background-color: #222222;
+    border:8px solid transparent;
+    color: white;
+    border-radius: 5px;
+}
