@@ -1,10 +1,11 @@
 #video-div{
     display: flex;
-  padding: 20px;
+    padding: 20px;
+    flex:6
 }
 
 #video-section{
-    background-color: #222222;
+    background-color: #121212;
     color: white;
     width: 900px;
 }
@@ -32,7 +33,7 @@
 .sub-btn{
     display: flex;
     align-items: center;
-    background-color:#a0a0a02f;
+    background-color:#282828;
     border: 2px solid transparent;
     border-radius: 20px;
     color: white;
@@ -41,7 +42,7 @@
 }
 
 .vid-btns{
-    background-color:#a0a0a02f;
+    background-color:#282828;
     border: 2px solid transparent;
     border-radius: 20px;
     color: white;
@@ -68,7 +69,7 @@
     padding-right: 4px;
 }
 #desc{
-    background-color:#a0a0a02f;
+    background-color:#282828;
     border-radius:10px ;
     padding:15px;
     font-size: 14px;
@@ -93,8 +94,6 @@
 
 textarea:focus-visible{
     outline: none;
-    outline: 1px solid white;
-    border-radius: 5px;
 }
 
 #cmt-btns{
@@ -111,8 +110,7 @@ textarea:focus-visible{
 }
 #cmnt-body{
     width: 94%;
-    font-size: 15px;
-  
+    font-size: 15px; 
 }
 #cmnts-btn{
     display:flex;

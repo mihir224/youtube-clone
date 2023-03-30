@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom"
+import logo from "../images/logo.png";
+import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import ExploreRoundedIcon from '@mui/icons-material/ExploreRounded';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
@@ -20,32 +22,40 @@ import SettingsBrightnessRoundedIcon from '@mui/icons-material/SettingsBrightnes
 function Navbar(){
     return (
         <div id="nav-bar">
+        <div id="logo-container">
+                <div id="hamburger"><MenuIcon id="icon"/></div>
+                <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
+                    <img src={logo} height="25" width="40"></img><h2>YouTube</h2>
+                </div></Link>
+            </div>
+           <div id="nav">
         <ul className="nav-list">
-            <Link to="/"><li><HomeIcon  className="nav-icons"/> <span>Home</span></li></Link>
-            <li><ExploreRoundedIcon className="nav-icons"/> <span>Explore</span></li>
-            <li><SubscriptionsIcon className="nav-icons"/><span> Subscriptions</span></li>
+            <Link to="/" style={{textDecoration: "none",color: "white"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/> <span>Home</span></li></Link>
+            <li className="nav-items"><ExploreRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Explore</span></li>
+            <li className="nav-items"><SubscriptionsIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Subscriptions</span></li>
         </ul>
         <hr/>
         <ul className="nav-list">
-            <li><VideoLibraryRoundedIcon className="nav-icons"/> <span>Library</span></li>
-            <li><HistoryRoundedIcon className="nav-icons"/> <span>History</span></li>
+            <li className="nav-items"><VideoLibraryRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Library</span></li>
+            <li className="nav-items"><HistoryRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>History</span></li>
         </ul>
         <hr/>
         <ul className="nav-list">
-            <li><LibraryMusicRoundedIcon className="nav-icons"/> <span>Music</span></li>
-            <li><SportsBasketballRoundedIcon className="nav-icons"/> <span>Sports</span></li>
-            <li><SportsEsportsRoundedIcon className="nav-icons"/> <span>Gaming</span></li>
-            <li><MovieCreationRoundedIcon className="nav-icons"/> <span>Movies</span></li>
-            <li><ArticleRoundedIcon className="nav-icons"/> <span>News</span></li>
-            <li><LiveTvRoundedIcon className="nav-icons"/> <span>Live</span></li>
+            <li className="nav-items"><LibraryMusicRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Music</span></li>
+            <li className="nav-items"><SportsBasketballRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Sports</span></li>
+            <li className="nav-items"><SportsEsportsRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Gaming</span></li>
+            <li className="nav-items"><MovieCreationRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Movies</span></li>
+            <li className="nav-items"><ArticleRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>News</span></li>
+            <li className="nav-items"><LiveTvRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Live</span></li>
         </ul>
         <hr/>
         <ul className="nav-list">
-            <li><SettingsRoundedIcon className="nav-icons"/> <span>Settings</span></li>
-            <li><FlagRoundedIcon className="nav-icons"/> <span>Report</span></li>
-            <li><HelpRoundedIcon className="nav-icons"/> <span>Help</span></li>
-            <li><SettingsBrightnessRoundedIcon className="nav-icons"/> <span>Display </span></li>
+            <li className="nav-items"><SettingsRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Settings</span></li>
+            <li className="nav-items"><FlagRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Report</span></li>
+            <li className="nav-items"><HelpRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Help</span></li>
+            <li className="nav-items"><SettingsBrightnessRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Display </span></li>
         </ul>
+        </div>
         </div>
     )
 }

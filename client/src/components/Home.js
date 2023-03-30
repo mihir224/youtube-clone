@@ -14,7 +14,9 @@ function Home(){
             <Card/>
             <Card/>
         </div>
+
     )
+
 }
 
 export default Home;

@@ -1,15 +1,9 @@
 body{
   margin: 0;
-  background-color: #222222;
-  font-family: "Montserrat";
+  background-color: #121212;
+  font-family: "Roboto";
 }
-a{
-  text-decoration: none;
-  color: white;
-  list-style: none;
-  font-size: 14px;
 
-}
 button{
   font-family: "Montserrat";
 }
@@ -17,10 +11,17 @@ button{
   display:flex;
   justify-content: center;
 }
+
+#search-body{
+  flex:6;
+  display:flex;
+  flex-direction: column;
+}
 #cards{
   display:flex;
-  width: 90%;
-  justify-content: space-around;
+  flex: 1;
+  width: 100%;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   padding-top: 28px;
 }

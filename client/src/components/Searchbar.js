@@ -10,12 +10,6 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 function Searchbar(){
     return (
         <div id="search-bar">
-            <div id="logo-container">
-                <div id="hamburger"><MenuIcon id="icon"/></div>
-                <Link to="/"><div id="logo">
-                    <img src={logo} height="25" width="40"></img><h2>YouTube</h2>
-                </div></Link>
-            </div>
             <div id="search-area">
             <input id="search" type="search" placeholder="Search"></input>
             <button id="search-btn" type="submit"><SearchIcon id="search-icon"/></button>
@@ -25,7 +19,6 @@ function Searchbar(){
                 <NotificationsIcon id="icon"/>
                 <button type="button"></button>
             </div>
-            
         </div>
     )
 }

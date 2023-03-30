@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Video.css"
+import "../styles/Video.css";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ShortcutIcon from '@mui/icons-material/Shortcut';
@@ -12,13 +12,13 @@ function Video(){
         display:"block",
         border:"none",
         width:"97%",
-        padding:"10px 5px",
+        padding:"2px 5px",
         margin:"0",
         resize:"none",
         overflow:"hidden",
         backgroundColor:"inherit",
-        border: "1px solid gray",
-        borderRadius: "5px",
+        border:"none",
+        borderBottom: "1px solid gray",
         color:"white",
         float:"right",
         fontSize:"14px",
@@ -38,11 +38,11 @@ function Video(){
                 <iframe 
                     width="800" 
                     height="440" 
-                    src="https://www.youtube.com/embed/yIaXoop8gl4" 
+                    src="https://www.youtube.com/embed/yIaXoop8gl4?rel=0&autoplay=1" 
                     title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
+                    allowfullscreen="allowfullscreen">
                 </iframe>
             </div>
             <h2 id="video-title">Title</h2>
