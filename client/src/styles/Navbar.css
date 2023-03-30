@@ -1,11 +1,10 @@
 #nav-bar{
-    width: 17vw;
+ flex:1;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
-    bottom: 0;
     left:0;
     /* remember this - position sticky needs some threshold to get activated thus we make top 10px */
     top:0px;
@@ -13,16 +12,14 @@
     position: sticky; 
     background-color: #121212;
     z-index: 5;
-    flex: 1;
+    
     
 }
 #logo-container{
     align-self:center;
     display: flex;
     align-items: center;
-    padding-left: 10px;
-    padding-top: 3px;
-   
+    padding:5px 0 12px 10px;
 }
 
 #logo{
@@ -32,7 +29,6 @@
     color: white;
     font-family: "teko";
     height: 100%;
-    ;
 }
 #logo>h2{
     padding-left: 2px;
@@ -42,7 +38,7 @@
 #nav{
     overflow-y: scroll;
     overflow-x: hidden;
-    max-height: 92vh;
+    max-height: 90vh;
 }
 
 .nav-list{
@@ -55,19 +51,36 @@
 
 .nav-items{
     list-style: none;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    font-size: 14px;
-    padding:8px 10px;
+    font-size: 15px;
+    padding:7px 10px;
     line-height: 1em;
     border-radius: 10px;
 }
+#signin-btn{
+    display: flex;
+    justify-content: space-around;
+    width: 6.5em;
+    align-items: center;
+    background-color: inherit;
+    color: #0081C9;
+    border:1px solid rgba(255, 255, 255, 0.3);
+    height: 2.5em;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor:pointer;   
+}
+#signin-btn:hover{
+    background-color: #222222;
+}
+
 .nav-items:hover{
     background-color:#a0a0a02f;
 }
-.nav-icons,span{
-    display: inline-block;
-    vertical-align:middle;
-}
+
 .nav-icons{
     padding:0;
     margin:0;

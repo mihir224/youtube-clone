@@ -18,6 +18,7 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 import SettingsBrightnessRoundedIcon from '@mui/icons-material/SettingsBrightnessRounded';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
 function Navbar(){
     return (
@@ -38,6 +39,12 @@ function Navbar(){
         <ul className="nav-list">
             <li className="nav-items"><VideoLibraryRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Library</span></li>
             <li className="nav-items"><HistoryRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>History</span></li>
+        </ul>
+        <hr/>
+        
+        <ul className="nav-list">
+            <li style={{padding:"4px 10px",lineHeight: "1em",listStyle:"none",fontSize: "15px"}}><span>Sign in to like videos, comment, and subscribe.</span></li>
+            <Link to="signin" style={{textDecoration: "none",fontSize: "14px",listStyle:"none"}}><li style={{padding:"4px 10px",lineHeight: "1em"}} ><button id="signin-btn" type="submit"><AccountCircleRoundedIcon/><span>Sign in</span></button></li></Link>
         </ul>
         <hr/>
         <ul className="nav-list">

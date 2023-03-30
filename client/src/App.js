@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Searchbar from './components/Searchbar';
+import SignIn from './components/SignIn';
 import Home from './components/Home';
 import Video from './components/Video';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
@@ -20,6 +21,8 @@ function App() {
       <Route path="video">
         <Route path=":id" element={<Video/>}></Route>
       </Route>
+      <Route path="signin" element={<SignIn/>}></Route>
+
     </Routes>
     </div>
     </div>
