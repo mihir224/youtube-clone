@@ -15,10 +15,9 @@
 }
 
 #search-area{
-    flex:6;
     margin: 0 200px;
     display: flex;
-    width: 42vw;
+    width: 44vw;
     height: 2.5em;
 }
 #search-icon{

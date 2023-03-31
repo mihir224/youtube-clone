@@ -6,6 +6,7 @@
     justify-content: center;
     color: white;
     left:0;
+    
     /* remember this - position sticky needs some threshold to get activated thus we make top 10px */
     top:0px;
     padding-top: 10px;
@@ -54,10 +55,11 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
     padding:7px 10px;
     line-height: 1em;
     border-radius: 10px;
+    
 }
 #signin-btn{
     display: flex;
@@ -79,6 +81,10 @@
 
 .nav-items:hover{
     background-color:#a0a0a02f;
+    opacity:1;
+}
+.nav-items>span{
+    opacity: 0.9;
 }
 
 .nav-icons{
@@ -96,4 +102,10 @@ hr{
 }
 
 
+@media screen and (max-width:1200px){
+    #nav-bar{
+      display: none;
+    }
+  }
+  
   

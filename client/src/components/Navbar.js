@@ -43,7 +43,7 @@ function Navbar(){
         <hr/>
         
         <ul className="nav-list">
-            <li style={{padding:"4px 10px",lineHeight: "1em",listStyle:"none",fontSize: "15px"}}><span>Sign in to like videos, comment, and subscribe.</span></li>
+            <li style={{padding:"4px 10px",lineHeight: "1.5em",listStyle:"none",fontSize: "14px",fontWeight:"400"}}><span>Sign in to like videos, comment, and subscribe.</span></li>
             <Link to="signin" style={{textDecoration: "none",fontSize: "14px",listStyle:"none"}}><li style={{padding:"4px 10px",lineHeight: "1em"}} ><button id="signin-btn" type="submit"><AccountCircleRoundedIcon/><span>Sign in</span></button></li></Link>
         </ul>
         <hr/>

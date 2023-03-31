@@ -22,7 +22,6 @@ function App() {
         <Route path=":id" element={<Video/>}></Route>
       </Route>
       <Route path="signin" element={<SignIn/>}></Route>
-
     </Routes>
     </div>
     </div>

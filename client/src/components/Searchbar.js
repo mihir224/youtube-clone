@@ -11,7 +11,6 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 function Searchbar(){
     return (
         <div id="search-bar">
-        
             <div id="search-area">
             <input id="search" type="search" placeholder="Search"></input>
             <button id="search-btn" type="submit"><SearchIcon id="search-icon"/></button>
