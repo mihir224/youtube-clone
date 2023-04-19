@@ -19,15 +19,18 @@
 #content{
     display: flex;
     justify-content: space-between;
-    width: 38%;
     height: 100%;
     position: relative;
+}
+#video-details{
+    padding-left: 12px;
 }
 
 #video-details>h3{
     margin:0;
     padding-bottom:4px;
     font-size: 18px;
+  
 
 }
 #video-details>p{

@@ -50,10 +50,8 @@
 }
 
 #n-icons{
-    flex:1.2;
     display: flex;
-  
- background-color: #222222;
+    width:11.5%;
     justify-content: space-between;
 }
 #icon{
