@@ -26,14 +26,14 @@ function Navbar(){
         <div id="logo-container">
                 <div id="hamburger"><MenuIcon id="icon"/></div>
                 <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
-                    <img src={logo} height="25" width="40"></img><h2>YouTube</h2>
+                    <img src={logo} height="25" width="40"></img><h2>MS-Tube</h2>
                 </div></Link>
             </div>
            <div id="nav">
         <ul className="nav-list">
-            <Link to="/" style={{textDecoration: "none",color: "white"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/> <span>Home</span></li></Link>
-            <li className="nav-items"><ExploreRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Explore</span></li>
-            <li className="nav-items"><SubscriptionsIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Subscriptions</span></li>
+            <Link to="/" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/> <span>Home</span></li></Link>
+            <Link to="/trending" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><ExploreRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Explore</span></li></Link>
+            <Link to="/subscribed" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><SubscriptionsIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Subscriptions</span></li></Link>
         </ul>
         <hr/>
         <ul className="nav-list">

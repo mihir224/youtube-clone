@@ -17,11 +17,15 @@ function App() {
     <div id="search-body">
     <Searchbar/>
     <Routes>
-      <Route path="/" element={<Home/>}></Route>
-      <Route path="video">
-        <Route path=":id" element={<Video/>}></Route>
+      <Route path="/">
+        <Route index element={<Home type="random"/>}/>
+        <Route path="trending" element={<Home type="trending"/>}/>
+        <Route path="subscribed" element={<Home type="subscribed"/>}/>
+        <Route path="video">
+          <Route path=":id" element={<Video/>}/>
+        </Route>
+        <Route path="signin" element={<SignIn/>}/>
       </Route>
-      <Route path="signin" element={<SignIn/>}></Route>
     </Routes>
     </div>
     </div>

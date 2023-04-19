@@ -6,6 +6,8 @@ body{
 
 button{
   font-family: "Roboto";
+  cursor: pointer;
+
 }
 #body-section{
   display:flex;
@@ -25,4 +27,8 @@ button{
     justify-content: space-evenly;
   flex-wrap: wrap;
   padding-top: 28px;
+}
+button{
+  cursor: pointer;
+
 }
