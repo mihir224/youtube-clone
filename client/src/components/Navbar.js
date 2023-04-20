@@ -19,8 +19,10 @@ import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 import SettingsBrightnessRoundedIcon from '@mui/icons-material/SettingsBrightnessRounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import { useDispatch, useSelector } from "react-redux";
 
 function Navbar(){
+    const currentUser=useSelector(state=>state.user.currentUser);
     return (
         <div id="nav-bar">
         <div id="logo-container">
@@ -41,12 +43,13 @@ function Navbar(){
             <li className="nav-items"><HistoryRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>History</span></li>
         </ul>
         <hr/>
-        
         <ul className="nav-list">
-            <li style={{padding:"4px 10px",lineHeight: "1.5em",listStyle:"none",fontSize: "14px",fontWeight:"400"}}><span>Sign in to like videos, comment, and subscribe.</span></li>
-            <Link to="signin" style={{textDecoration: "none",fontSize: "14px",listStyle:"none"}}><li style={{padding:"4px 10px",lineHeight: "1em"}} ><button id="signin-btn" type="submit"><AccountCircleRoundedIcon/><span>Sign in</span></button></li></Link>
+            {currentUser?<li style={{padding:"0px 10px",lineHeight: "1.2em",listStyle:"none",fontSize: "14px",fontWeight:"600",opacity:"0.6"}}><span>BEST OF <br/> MS-TUBE</span></li>
+            :<div><li style={{padding:"4px 10px",lineHeight: "1.5em",listStyle:"none",fontSize: "14px",fontWeight:"400"}}><span>Sign in to like videos, comment, and subscribe.</span></li>
+            <Link to="signin" style={{textDecoration: "none",fontSize: "14px",listStyle:"none"}}><li style={{padding:"4px 10px",lineHeight: "1em"}} ><button id="signin-btn" type="submit"><AccountCircleRoundedIcon/><span>Sign in</span></button></li></Link></div>
+            }
         </ul>
-        <hr/>
+        {!currentUser&&<hr/>}
         <ul className="nav-list">
             <li className="nav-items"><LibraryMusicRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Music</span></li>
             <li className="nav-items"><SportsBasketballRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Sports</span></li>

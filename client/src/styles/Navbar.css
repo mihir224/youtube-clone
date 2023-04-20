@@ -6,15 +6,12 @@
     justify-content: center;
     color: white;
     left:0;
-    
     /* remember this - position sticky needs some threshold to get activated thus we make top 10px */
     top:0px;
     padding-top: 10px;
     position: sticky; 
     background-color: #121212;
-    z-index: 5;
-    
-    
+    z-index: 5;    
 }
 #logo-container{
     align-self:center;
@@ -70,7 +67,7 @@
     color: #0081C9;
     border:1px solid rgba(255, 255, 255, 0.3);
     height: 2.5em;
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 14px;
     font-weight: 500;
     cursor:pointer;   
@@ -85,6 +82,7 @@
 }
 .nav-items>span{
     opacity: 0.9;
+    
 }
 
 .nav-icons{
@@ -94,7 +92,7 @@
 }
 hr{
     text-align: middle;
-    width: 90%;
+    width: 85%;
     opacity: 0.3; 
 }
 #test{
