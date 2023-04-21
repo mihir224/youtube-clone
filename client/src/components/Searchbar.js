@@ -11,6 +11,12 @@ import { useSelector } from "react-redux";
 
 function Searchbar(){
     const currentUser=useSelector(state=>state.user.currentUser); 
+    const customStyling={
+        background:`url(${currentUser.img}) no-repeat`,
+        backgroundSize:"40px",
+        backgroundPosition:"-5px -2px"
+        
+    }
     return (
         <div id="search-bar">
             <div id="search-area">
@@ -18,7 +24,7 @@ function Searchbar(){
             <button id="search-btn" type="submit"><SearchIcon id="search-icon"/></button>
             </div>
             {currentUser?
-            <div id="n-icons"><VideoCallIcon id="icon"/><NotificationsIcon id="icon"/><button type="button"></button></div>
+            <div id="n-icons"><VideoCallIcon id="icon"/><NotificationsIcon id="icon"/><button type="button" style={customStyling}></button></div>
             :<Link to="signin" style={{textDecoration: "none",fontSize: "14px",listStyle:"none"}}><button id="signin-btn" type="submit"><AccountCircleRoundedIcon/><span>Sign in</span></button></Link>
             }
         </div>

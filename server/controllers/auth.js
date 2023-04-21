@@ -43,3 +43,35 @@ export const signin= async (req,res,next)=>{
         next(err)
     }
 } 
+
+export const googleAuth=async(req,res,next)=>{
+    try{
+        const user=await User.findOne({email:req.body.email})
+        if(user){ //user already exists in DB
+            const token=jwt.sign({id:user._id},process.env.JWT)
+            res
+            .cookie("access_token",token,{ //to send the access token to the client
+            //to use cookies, we import the cookie-parser
+            httpOnly:true //this will make our application more secure such that third party scripts will not be able to use our cookie 
+            })
+            .status(200)
+            .json(user._doc);
+        }
+        else{ //user is being registered for the first time
+            const newUser=new User({
+                ...req.body,
+                fromGoogle:true
+            })
+            const savedUser=await newUser.save();
+            const token=jwt.sign({id:savedUser._id},process.env.JWT)
+            res
+            .cookie("access_token",token,{ 
+            httpOnly:true 
+            })
+            .status(200)
+            .json(savedUser._doc);
+        }
+    }catch(err){
+        next(err)
+    }
+}

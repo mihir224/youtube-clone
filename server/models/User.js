@@ -13,7 +13,6 @@ const UserSchema=new mongoose.Schema({
     },
     password:{
         type:String,
-        required:true
     },
     img:{
         type:String
@@ -24,6 +23,10 @@ const UserSchema=new mongoose.Schema({
     },
     subscribedUsers:{ //list of subscribed users of a user
         type:[String]
+    },
+    fromGoogle:{ //will help us identify whether the data came from google
+        type:Boolean,
+        default:false
     }
 },{timestamps:true}); //through timestamps, mongoose will add to properties of type Date to our schema: createdAt and updatedAt 
 

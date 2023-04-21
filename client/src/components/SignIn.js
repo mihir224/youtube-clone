@@ -3,6 +3,8 @@ import "../styles/SignIn.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice";
+import { signInWithPopup } from "@firebase/auth";
+import { auth, provider } from "../firebase";
 
 function SignIn(){
     const dispatch=useDispatch();
@@ -21,6 +23,19 @@ function SignIn(){
             //console.log(err)
         }
     }
+    const handleClick=async()=>{
+        dispatch(loginStart());
+        try{
+            signInWithPopup(auth,provider).then((result)=>{ //this result consists of our user info provided by google
+                axios.post("auth/google",{name:result.user.displayName,email:result.user.email,img:result.user.photoURL})
+                .then((res)=>{ //after verifying the info sent by google with info in our DB, we simply return the info of the user that is saved in the DB.
+                    dispatch(loginSuccess(res.data))
+                })
+            })
+        }catch(err){
+            dispatch(loginFailure(err));
+        }
+    }
     return (
         <div id="sign-in">
         <h2>Sign in</h2>
@@ -28,6 +43,7 @@ function SignIn(){
         <input type="text"  name="username" placeholder="Username" onChange={(event)=>{setName(event.target.value)}}></input>
         <input type="password"  name="password" placeholder="Enter your password" onChange={(event)=>{setPassword(event.target.value)}}></input>
         <button type="submit" onClick={handleLogin}>Sign in</button>
+        <button type="submit" onClick={handleClick}>Sign in with google</button>
         <p>OR</p>
         <h2>Sign up</h2>
         <input type="text"  name="username" placeholder="Username" onChange={(event)=>{setName(event.target.value)}}></input>
