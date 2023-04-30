@@ -3,29 +3,28 @@ import "../styles/Navbar.css";
 import { Link } from "react-router-dom"
 import logo from "../images/logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
-import ExploreRoundedIcon from '@mui/icons-material/ExploreRounded';
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
-import VideoLibraryRoundedIcon from '@mui/icons-material/VideoLibraryRounded';
+import HomeIcon from '@mui/icons-material/HomeOutlined';
+import ExploreRoundedIcon from '@mui/icons-material/ExploreOutlined';
+import SubscriptionsIcon from '@mui/icons-material/SubscriptionsOutlined';
+import VideoLibraryRoundedIcon from '@mui/icons-material/VideoLibraryOutlined';
 import HistoryRoundedIcon from '@mui/icons-material/HistoryRounded';
-import LibraryMusicRoundedIcon from '@mui/icons-material/LibraryMusicRounded';
-import SportsBasketballRoundedIcon from '@mui/icons-material/SportsBasketballRounded';
-import SportsEsportsRoundedIcon from '@mui/icons-material/SportsEsportsRounded';
-import MovieCreationRoundedIcon from '@mui/icons-material/MovieCreationRounded';
-import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
-import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
-import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
-import SettingsBrightnessRoundedIcon from '@mui/icons-material/SettingsBrightnessRounded';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import LibraryMusicRoundedIcon from '@mui/icons-material/LibraryMusicOutlined';
+import SportsBasketballRoundedIcon from '@mui/icons-material/SportsBasketballOutlined';
+import SportsEsportsRoundedIcon from '@mui/icons-material/SportsEsportsOutlined';
+import MovieCreationRoundedIcon from '@mui/icons-material/MovieCreationOutlined';
+import ArticleRoundedIcon from '@mui/icons-material/ArticleOutlined';
+import LiveTvRoundedIcon from '@mui/icons-material/LiveTvOutlined';
+import SettingsRoundedIcon from '@mui/icons-material/SettingsOutlined';
+import FlagRoundedIcon from '@mui/icons-material/FlagOutlined';
+import HelpRoundedIcon from '@mui/icons-material/HelpOutlined';
+import SettingsBrightnessRoundedIcon from '@mui/icons-material/SettingsBrightnessOutlined';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { useDispatch, useSelector } from "react-redux";
 
-function Navbar(){
+function Navbar({showNav}){
     const currentUser=useSelector(state=>state.user.currentUser);
     return (
-        <div id="nav-bar">
-        
+        <div id="nav-bar" style={showNav?{display:"contents"}:{display:"none"}}>
            <div id="nav">
         <ul className="nav-list">
             <Link to="/" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/> <span>Home</span></li></Link>

@@ -11,7 +11,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
 
-function Searchbar(){
+function Searchbar({showNav,setShowNav}){
     const dispatch=useDispatch();
     const currentUser=useSelector(state=>state.user.currentUser); 
     // const [dropdown,setDropDown]=useState(false);
@@ -28,7 +28,7 @@ function Searchbar(){
     return (
         <div id="search-bar" >
         <div id="logo-container">
-                <div id="hamburger"><MenuIcon id="icon"/></div>
+                <div id="hamburger" onClick={()=>setShowNav(!showNav)}><MenuIcon id="icon"/></div>
                 <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
                     <img src={logo} height="25" width="40"></img><h2>MS-Tube</h2>
                 </div></Link>

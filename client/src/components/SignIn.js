@@ -49,6 +49,7 @@ function SignIn(){
         }
     }
     return currentUser?<Navigate replace={true} to="/"></Navigate>:(
+        <div id="sign-in-div">
         <div id="sign-in">
         <h2>Sign in</h2>
         <p>to continue to YouTube</p>
@@ -62,6 +63,7 @@ function SignIn(){
         <input type="email"  name="email" placeholder="Email" onChange={(event)=>{setEmail(event.target.value)}}></input>
         <input type="password"  name="password" placeholder="Enter your password" onChange={(event)=>{setPassword(event.target.value)}}></input>
         <button type="submit" onClick={handleSignin}>Sign up</button>
+        </div>
         </div>
     )
 }
