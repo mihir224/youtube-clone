@@ -13,9 +13,11 @@ function App() {
     <div className="App">
   
     <div id="body-section">
-    <Navbar/>
     <div id="search-body">
     <Searchbar/>
+    </div>
+   <div id="content">
+    <Navbar/>
     <Routes>
       <Route path="/">
         <Route index element={<Home type="random"/>}/>
@@ -28,6 +30,7 @@ function App() {
       </Route>
     </Routes>
     </div>
+    
     </div>
     </div>
     </BrowserRouter>

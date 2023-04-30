@@ -25,12 +25,7 @@ function Navbar(){
     const currentUser=useSelector(state=>state.user.currentUser);
     return (
         <div id="nav-bar">
-        <div id="logo-container">
-                <div id="hamburger"><MenuIcon id="icon"/></div>
-                <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
-                    <img src={logo} height="25" width="40"></img><h2>MS-Tube</h2>
-                </div></Link>
-            </div>
+        
            <div id="nav">
         <ul className="nav-list">
             <Link to="/" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/> <span>Home</span></li></Link>
