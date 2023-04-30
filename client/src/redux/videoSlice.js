@@ -3,17 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 const videoSlice=createSlice({
     name:'video',
     initialState:{
-        currentUser:null,
+        currentVideo:null,
         isLoading:false,
         serverErr:null
     },
     reducers:{
-        videoStart:(state)=>{
+        fetchStart:(state)=>{
             state.isLoading=true;
+        },
+        fetchSuccess:(state,action)=>{
+            state.isLoading=false
+            state.currentVideo=action.payload
+        },
+        fetchError:(state,action)=>{
+            state.isLoading=false
+            state.serverErr=action.payload
         }
     }
 })
 
-export const {videoStart}=videoSlice.actions;
+export const {fetchStart,fetchSuccess,fetchError}=videoSlice.actions;
 
 export default videoSlice.reducer;
