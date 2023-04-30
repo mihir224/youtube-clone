@@ -18,7 +18,7 @@ function Card({video}){
     },[video.userId]);
     return (
         <div id="card"> 
-            <Link to="/video/:id"><div id="thumbnail"><img style={{width:"100%"}} src={video.imgUrl} height="190"></img></div></Link>
+            <Link to={`/video/${video._id}`}><div id="thumbnail"><img style={{width:"100%"}} src={video.imgUrl} height="190"></img></div></Link>
             <div id="card-body">
             <div id="content">
                 <div id="channel-dp">

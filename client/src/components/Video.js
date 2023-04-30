@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import "../styles/Video.css";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
@@ -6,8 +6,32 @@ import ShortcutIcon from '@mui/icons-material/Shortcut';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Shortcut from "@mui/icons-material/Shortcut";
+import { useLocation } from "react-router";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchStart,fetchSuccess,fetchError } from "../redux/videoSlice";
+import {format} from "timeago.js";
 
 function Video(){
+    const dispatch=useDispatch();
+    const path=useLocation().pathname.split("/")[2]; //retrieves video id from url
+    const currentVideo=useSelector(state=>state.video.currentVideo)
+    const currentUser=useSelector(state=>state.user.currentUser);
+    const [channel,setChannel]=useState({})
+    useEffect(()=>{
+        dispatch(fetchStart());
+        const fetchData=async()=>{
+            try{
+                const vidRes=await axios.get(`/videos/find/${path}`);
+                const channelRes=await axios.get(`/users/find/${vidRes.data?.userId}`)
+                dispatch(fetchSuccess(vidRes.data))
+                setChannel(channelRes.data)
+            }catch(err){
+                dispatch(fetchError(err));
+            }
+        }
+        fetchData();
+    },[path,dispatch])
     const customStyle={
         display:"block",
         border:"none",
@@ -31,6 +55,7 @@ function Video(){
         const scrollHeight=textareaRef.current.scrollHeight;
         textareaRef.current.style.height=scrollHeight+"px"; //changing the current height of the text area to whatever is returned by scroll height
     },[currentVal]);
+
     return (
         <div id="video-div">
         <div id="video-section">
@@ -45,15 +70,15 @@ function Video(){
                     allowfullscreen="allowfullscreen">
                 </iframe>
             </div>
-            <h2 id="video-title">Title</h2>
+            <h2 id="video-title">{currentVideo?.title}</h2>
             <div id="video-body">
                 <div id="channel-details">
                     <div id="channel-dp">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+                        <img src={channel?.img} height="40" width="40"></img>
                     </div>
                     <div id="channel-desc">
-                        <h3 style={{fontWeight:"500"}}>channel</h3>
-                        <p>subs</p>
+                        <h3 style={{fontWeight:"500"}}>{channel?.name}</h3>
+                        <p>{channel?.subscribers}</p>
                     </div>
                     <button className="sub-btn" type="button"><NotificationsIcon id="notif"/> Subscribe</button>
                 </div>
@@ -68,9 +93,9 @@ function Video(){
             </div>
             <div id="desc">
                 <div id="info">
-                    <p>Views</p>
-                    <p>When</p>
-                    <p>Tags</p>
+                    <p>{currentVideo?.views}</p>
+                    <p>{format(currentVideo?.createdAt)}</p>
+                    <p>{currentVideo?.tags}</p>
                 </div>
                 <p>It is a long established fact that a reader will be distracted by the 
                 readable content of a page when looking at its layout. The point of using 
