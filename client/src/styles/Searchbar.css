@@ -2,14 +2,35 @@
     color: white;
     display: flex;
     justify-content: space-between;
-   top:0px;
-   position: sticky;
+    top:0px;
+    position: sticky;
     align-items: center;
-  background-color: #121212;
-    padding: 10px 26px;
+    background-color: inherit;
+    padding: 18px 26px 5px 26px;
     z-index: 4;
+    
+
+}
+#logo-container{
+    display: flex;
+    align-items: center;
+    padding:5px 0;
+    justify-content: space-between;
 }
 
+#logo{
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+    color: white;
+    font-family: "teko";
+    height: 100%;
+}
+#logo>h2{
+    padding-left: 2px;
+    font-size: 26px;
+    height: 32px;
+}
 #icon{
     vertical-align: bottom;
 }
@@ -57,8 +78,48 @@
 #icon{
  font-size: 30px;
 }
-#n-icons>button{
+
+#dropdown>button{
     border: 1px solid transparent;
     border-radius: 50px;
-    width: 22%;
+    height: 2.4em;
+    width: 2.3em;
+}
+#dropdown:hover #dropdown-content{
+    display: block;
+}
+#dropdown-content{
+    height: 100%;
+    display: none;
+}
+#dropdown-content>ul{
+    position: absolute;
+    list-style: none;
+    padding:0;
+    text-align: center;
+    right:12px;
+    width:4.5em;
+    background-color: #444343ec;
+    padding:10px;
+    border-radius:5px;
+ 
+}
+.dd-list-item{
+    opacity: 0.8;
+}
+.dd-list-item:hover{
+    opacity: 1;
+}
+#logout-btn{
+    color: white;
+    background-color: inherit;
+    font-size: 14px;
+    width: 100%;
+    border:1px solid transparent;
+    font-family: "Roboto";
+    font-weight: 400;
+    display: flex;
+    padding:0;
+    align-items: center;
+    justify-content: space-between;
 }
