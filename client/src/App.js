@@ -5,19 +5,20 @@ import SignIn from './components/SignIn';
 import Home from './components/Home';
 import Video from './components/Video';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { useState } from 'react';
 
 
 function App() {
+  const [showNav, setShowNav]=useState(true);
   return (
     <BrowserRouter>
     <div className="App">
-  
     <div id="body-section">
     <div id="search-body">
-    <Searchbar/>
+    <Searchbar showNav={showNav} setShowNav={setShowNav}/>
     </div>
    <div id="content">
-    <Navbar/>
+    <Navbar showNav={showNav}/>
     <Routes>
       <Route path="/">
         <Route index element={<Home type="random"/>}/>
