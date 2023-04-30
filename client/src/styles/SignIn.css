@@ -1,16 +1,21 @@
+#sign-in-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 #sign-in{
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    align-self: center;
     margin-top: 70px;
     height: 30em;
     border:1px solid rgba(255, 255, 255, 0.075);
-    border-radius: 4px;
-    width: 30%;
+    border-radius: 5px;
     box-shadow: 0px 0px 1px 1px rgba(136, 136, 136, 0.397); /*any color you want*/
     color: white;
+    width: 30%;
+    padding:20px;
 }
 #sign-in>input{
     border:1px solid rgba(255, 255, 255, 0.185);
@@ -23,5 +28,10 @@
     background-color: #222222;
     border:8px solid transparent;
     color: white;
-    border-radius: 2px;
+    border-radius: 5px;
+}
+@media screen and (max-width:1200px) {
+    #sign-in{
+      width:auto
+    }
 }
