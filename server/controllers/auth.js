@@ -8,8 +8,8 @@ export const signup= async (req,res,next)=>{  //function is async because operat
         const salt = bcrypt.genSaltSync(10);  //10 is the number of salt rounds
         const hash = bcrypt.hashSync(req.body.password, salt);
         const newUser=new User({...req.body,password:hash}); //spreading whatever we've sent through body via postman as json and changing the password to hashed password 
-        await newUser.save();
-        res.status(200).send("User saved.")
+        const user=await newUser.save();
+        res.status(200).json(user)
      }catch(err){
          next(err)
      }
