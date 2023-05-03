@@ -77,11 +77,12 @@
 
 #n-icons{
     display: flex;
-    width:11.5%;
+    width:9em;
     justify-content: space-between;
+    align-items: center;
 }
 #icon{
- font-size: 30px;
+ font-size: 28px;
 }
 
 #dropdown>button{

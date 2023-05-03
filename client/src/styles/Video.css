@@ -1,34 +1,47 @@
 #video-div{
     display: flex;
-    padding: 20px;
-    flex:6
+    padding:30px 20px 30px 40px  ;
+   justify-content: space-around;
+}
+
+#vid{
+    max-height: 720px;
+    object-fit: cover;
+    width: 100%;
 }
 
 #video-section{
-    background-color: #121212;
-    color: white;
+    color: #ffffffee;
     width: 900px;
+    
 }
 #video-title{
     font-weight: 500;
     font-size: 22px;
     padding:5px 0;
+    margin:0
 }
 #video-body{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
+    
+}
+#channel-container{
+    display:flex;
+    width: 9em;
+    justify-content: space-between;
+    align-items: center;
 }
 #channel-desc{
     font-size: 15px;
-    padding-right: 20px;
 }
 #channel-details{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:34%;
+    width:17em
 }
 .sub-btn{
     display: flex;
@@ -37,7 +50,7 @@
     border: 2px solid transparent;
     border-radius: 20px;
     color: white;
-    padding:5px 15px;
+    padding:5px 10px;
     font-size: 14px;
 }
 
@@ -46,7 +59,7 @@
     border: 2px solid transparent;
     border-radius: 20px;
     color: white;
-    padding:5px 15px;
+    padding:5px 10px;
     font-size: 14px;
 }
 #like{
@@ -107,10 +120,13 @@ textarea:focus-visible{
     display: flex;
     justify-content: space-between;
     padding-top:20px;
+
 }
 #cmnt-body{
-    width: 94%;
+    width:44.8em;
     font-size: 15px; 
+    
+
 }
 #cmnts-btn{
     display:flex;
@@ -120,7 +136,7 @@ textarea:focus-visible{
 }
 .suggestion{
     display: flex;
-    color: white;
+    color: #ffffffee;
     font-size: 12px;
     padding-left: 20px;
     padding-bottom:20px ;

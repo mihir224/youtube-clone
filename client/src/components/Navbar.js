@@ -24,7 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 function Navbar({showNav}){
     const currentUser=useSelector(state=>state.user.currentUser);
     return (
-        <div id="nav-bar" style={showNav?{display:"contents"}:{display:"none"}}>
+        <div id={showNav?"nav-bar":"no-show"}>
            <div id="nav">
         <ul className="nav-list">
             <Link to="/" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/> <span>Home</span></li></Link>

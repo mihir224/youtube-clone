@@ -4,9 +4,9 @@ import { Link } from "react-router-dom"
 import logo from "../images/logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import VideoCallIcon from '@mui/icons-material/VideoCall';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import VideoCallIcon from '@mui/icons-material/VideoCallOutlined';
+import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";

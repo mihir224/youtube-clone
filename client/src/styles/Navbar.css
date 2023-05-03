@@ -9,6 +9,10 @@
     top:0;
     position: sticky; 
     z-index: 5;   
+    width: 22em;
+}
+#no-show{
+    display: none;
 }
 
 #nav{

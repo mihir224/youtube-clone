@@ -30,7 +30,7 @@ button{
   justify-content: space-evenly;
   flex-direction: row;
   padding-top: 28px;
-  
+
 }
 @media screen and (max-width:1200px) {
   #cards{
