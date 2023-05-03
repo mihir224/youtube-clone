@@ -1,37 +1,32 @@
 import React, { useState,useEffect } from "react";
 import "../styles/Video.css";
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined';
 import ShortcutIcon from '@mui/icons-material/Shortcut';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Shortcut from "@mui/icons-material/Shortcut";
 import { useLocation } from "react-router";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStart,fetchSuccess,fetchError } from "../redux/videoSlice";
+import { subscribe,unsubscribe } from "../redux/userSlice";
+import { fetchStart,fetchSuccess,fetchError,like,dislike } from "../redux/videoSlice";
 import {format} from "timeago.js";
+import Comments from "./Comments";
+import {Link} from "react-router-dom";
 
 function Video(){
     const dispatch=useDispatch();
     const path=useLocation().pathname.split("/")[2]; //retrieves video id from url
     const currentVideo=useSelector(state=>state.video.currentVideo)
+    const isLoading=useSelector(state=>state.video.isLoading);
     const currentUser=useSelector(state=>state.user.currentUser);
     const [channel,setChannel]=useState({})
-    useEffect(()=>{
-        dispatch(fetchStart());
-        const fetchData=async()=>{
-            try{
-                const vidRes=await axios.get(`/videos/find/${path}`);
-                const channelRes=await axios.get(`/users/find/${vidRes.data?.userId}`)
-                dispatch(fetchSuccess(vidRes.data))
-                setChannel(channelRes.data)
-            }catch(err){
-                dispatch(fetchError(err));
-            }
-        }
-        fetchData();
-    },[path,dispatch])
+    const [comments,setComments]=useState([])
+    const [commentUser,setCommentUser]=useState({})
     const customStyle={
         display:"block",
         border:"none",
@@ -48,19 +43,86 @@ function Video(){
         fontSize:"14px",
         fontFamily:"Montserrat"
     }
+    useEffect(()=>{
+        dispatch(fetchStart());
+        const fetchData=async()=>{
+            try{
+                const vidRes=await axios.get(`/videos/find/${path}`);
+                const channelRes=await axios.get(`/users/find/${vidRes.data?.userId}`)
+                const commentRes=await axios.get(`/comments/${path}`);
+                dispatch(fetchSuccess(vidRes.data))
+                setChannel(channelRes.data)
+                setComments(commentRes.data)
+            }catch(err){
+                dispatch(fetchError(err));
+            }
+        }
+        fetchData();
+    },[path,dispatch])
     const textareaRef=React.useRef(null);
     const [currentVal, setCurrentVal]=React.useState("");
     React.useEffect(()=>{
+        if(currentUser){
         textareaRef.current.style.height="0px";
         const scrollHeight=textareaRef.current.scrollHeight;
         textareaRef.current.style.height=scrollHeight+"px"; //changing the current height of the text area to whatever is returned by scroll height
-    },[currentVal]);
+    }
+    },[currentVal,comments]);
+    const handleLike=async()=>{
+        if(!currentUser){
+            alert("To like a video, first please login")
+        }
+        try{
+            if(currentUser){
+                await axios.put(`/users/like/${currentVideo?._id}`)
+                dispatch(like(currentUser?._id))
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
+    const handleDislike=async()=>{
+        if(!currentUser){
+            alert("To dislike a video, first please login")
+        }
+        try{
+            if(currentUser){
+                await axios.put(`/users/dislike/${currentVideo?._id}`)
+                dispatch(dislike(currentUser?._id))
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
+    const handleSub=async()=>{
+        if(!currentUser){
+            alert("Login to subscribe")
+        }
+        try{
+            if(currentUser){
+                currentUser?.subscribedUsers.includes(channel?._id)?
+                    await axios.put(`/users/unsub/${channel?._id}`):
+                    await axios.put(`/users/sub/${channel?._id}`)
+                dispatch(subscribe(channel?._id))
+        }
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    const handleComment=async()=>{
+        try{
+           await axios.post(`/comments/`,{videoId:currentVideo?._id,desc:currentVal});
+        }catch(err){
+            console.log(err)
+        }
+    }
 
     return (
         <div id="video-div">
         <div id="video-section">
             <div id="video">
-                <iframe 
+                {/* <iframe 
                     width="800" 
                     height="440" 
                     src="https://www.youtube.com/embed/yIaXoop8gl4?rel=0&autoplay=1" 
@@ -68,24 +130,29 @@ function Video(){
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen="allowfullscreen">
-                </iframe>
+                </iframe> */}
+                <video src={currentVideo?.videoUrl} id="vid" controls></video>
             </div>
             <h2 id="video-title">{currentVideo?.title}</h2>
             <div id="video-body">
-                <div id="channel-details">
+                {isLoading?<p>Loading Channel Details...</p>:<div id="channel-details">
+                    <div id="channel-container">
                     <div id="channel-dp">
-                        <img src={channel?.img} height="40" width="40"></img>
+                        <img src={channel?.img} style={{objectFit:"cover"}}  height="40" width="40"></img>
                     </div>
                     <div id="channel-desc">
                         <h3 style={{fontWeight:"500"}}>{channel?.name}</h3>
-                        <p>{channel?.subscribers}</p>
+                        <p>{channel?.subscribers} subscribers</p>
                     </div>
-                    <button className="sub-btn" type="button"><NotificationsIcon id="notif"/> Subscribe</button>
-                </div>
+                    </div>
+                    {currentUser?.subscribedUsers.includes(channel?._id)?
+                    <button className="sub-btn" type="button" onClick={handleSub}><NotificationsActiveIcon id="notif" /> Subscribed</button>:
+                    <button className="sub-btn" type="button" onClick={handleSub}><NotificationsIcon id="notif"/>  Subscribe</button>}
+                </div>}
                 <div id="vid-icons">
                     <div>
-                        <button id="like" className="vid-btns" type="button"><ThumbUpOffAltIcon className="vid-icon"/></button>
-                        <button id="dislike" className="vid-btns" type="button"><ThumbDownOffAltIcon className="vid-icon"/></button>
+                        <button id="like" className="vid-btns" type="button" onClick={handleLike}>{currentVideo.likes?.includes(currentUser?._id)?<ThumbUpIcon className="vid-icon" />:<ThumbUpOutlinedIcon className="vid-icon"/>} {currentVideo?.likes.length}</button>
+                        <button id="dislike" className="vid-btns" type="button" onClick={handleDislike}>{currentVideo.dislikes?.includes(currentUser?._id)?<ThumbDownIcon className="vid-icon"/>:<ThumbDownOutlinedIcon className="vid-icon"/>}</button>
                     </div>
                     <button className="vid-btns" type="button"><ShortcutIcon className="vid-icon"/>Share</button>
                     <button className="vid-btns" type="button"><SaveAltIcon className="vid-icon"/>Save</button>
@@ -93,20 +160,16 @@ function Video(){
             </div>
             <div id="desc">
                 <div id="info">
-                    <p>{currentVideo?.views}</p>
+                    <p>{currentVideo?.views} views</p>
                     <p>{format(currentVideo?.createdAt)}</p>
                     <p>{currentVideo?.tags}</p>
                 </div>
-                <p>It is a long established fact that a reader will be distracted by the 
-                readable content of a page when looking at its layout. The point of using 
-                Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
-                as opposed to using 'Content here, content here', making it look like readable English. 
-                Many desktop publishing packages</p>
+                <p>{currentVideo?.desc}</p>
             </div>
-            <h3 style={{padding:"15px 0", fontWeight:"400"}}>Number of comments</h3>
-            <div id="comment">
+            <h3 style={{padding:"15px 0", fontWeight:"400"}}>{comments?.length} comments</h3>
+            {currentUser?<div id="comment">
                 <div id="channel-dp">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
+                    <img src={currentUser?.img} style={{objectFit:"cover"}} height="40" width="40"></img>
                 </div>  
                 <div id="comment-ip">           
                     <div id="ta-div">
@@ -121,152 +184,13 @@ function Video(){
                     </div>
                     <div id="cmt-btns">
                         <button className="vid-btns" type="button">Cancel</button>
-                        <button className="vid-btns" type="button">Comment</button>
+                        <button className="vid-btns" type="submit" onClick={handleComment}>Comment</button>
                     </div>
                 </div>            
-            </div>
-            <div className="comments">
-            <div id="channel-dp">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
-            </div> 
-            <div id="cmnt-body">
-                <p>user - when</p>
-                <p>It is a long established fact that a reader will be distracted by the 
-                readable content of a page when looking at its layout.</p>
-                <div id="cmnts-btn">
-                    <ThumbUpOffAltIcon/>
-                    <ThumbDownOffAltIcon/>
-                    <p><span>reply</span></p>
-                </div>
-            </div>
-            </div>
-            <div className="comments">
-            <div id="channel-dp">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
-            </div> 
-            <div id="cmnt-body">
-                <p>user - when</p>
-                <p>It is a long established fact that a reader will be distracted by the 
-                readable content of a page when looking at its layout.</p>
-                <div id="cmnts-btn">
-                    <ThumbUpOffAltIcon/>
-                    <ThumbDownOffAltIcon/>
-                    <p><span>reply</span></p>
-                </div>
-            </div>
-            </div>
-            <div className="comments">
-            <div id="channel-dp">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
-            </div> 
-            <div id="cmnt-body">
-                <p>user - when</p>
-                <p>It is a long established fact that a reader will be distracted by the 
-                readable content of a page when looking at its layout.</p>
-                <div id="cmnts-btn">
-                    <ThumbUpOffAltIcon/>
-                    <ThumbDownOffAltIcon/>
-                    <p><span>reply</span></p>
-                </div>
-            </div>
-            </div>
-            <div className="comments">
-            <div id="channel-dp">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
-            </div> 
-            <div id="cmnt-body">
-                <p>user - when</p>
-                <p>It is a long established fact that a reader will be distracted by the 
-                readable content of a page when looking at its layout.</p>
-                <div id="cmnts-btn">
-                    <ThumbUpOffAltIcon/>
-                    <ThumbDownOffAltIcon/>
-                    <p><span>reply</span></p>
-                </div>
-            </div>
-            </div>
-            <div className="comments">
-            <div id="channel-dp">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
-            </div> 
-            <div id="cmnt-body">
-                <p>user - when</p>
-                <p>It is a long established fact that a reader will be distracted by the 
-                readable content of a page when looking at its layout.</p>
-                <div id="cmnts-btn">
-                    <ThumbUpOffAltIcon/>
-                    <ThumbDownOffAltIcon/>
-                    <p><span>reply</span></p>
-                </div>
-            </div>
-            </div>
-            <div className="comments">
-            <div id="channel-dp">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="40" width="40"></img>
-            </div> 
-            <div id="cmnt-body">
-                <p>user - when</p>
-                <p>It is a long established fact that a reader will be distracted by the 
-                readable content of a page when looking at its layout.</p>
-                <div id="cmnts-btn">
-                    <ThumbUpOffAltIcon/>
-                    <ThumbDownOffAltIcon/>
-                    <p><span>reply</span></p>
-                </div>
-            </div>
-            </div>
+            </div>:<h3 style={{fontWeight:"400"}}>To add a comment, <Link to="/signin" replace={true} style={{color:"inherit"}}>Sign in</Link> to your MS-Tube account</h3>}
+             <Comments videoId={currentVideo?._id}/>
         </div>
         <div id="suggestions">
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
         <div className="suggestion">
             <div id="thumbnail">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
