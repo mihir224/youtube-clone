@@ -22,10 +22,10 @@ function Card({video}){
             <div id="card-body">
             <div id="content">
                 <div id="channel-dp">
-                    <img src={channel.img} height="40" width="40"></img>
+                    <img src={channel.img} style={{objectFit:"cover"}} height="40" width="40"></img>
                 </div>
                 <div id="video-details">
-                    <h3>{video.title}</h3> 
+                    <h3 style={{fontWeight:"500"}}>{video.title}</h3> 
                     <p>{channel.name}</p>
                     <p>{video.views} views • {format(video.createdAt)}</p>
                 </div>
