@@ -16,6 +16,7 @@ import { subscribe,unsubscribe } from "../redux/userSlice";
 import { fetchStart,fetchSuccess,fetchError,like,dislike } from "../redux/videoSlice";
 import {format} from "timeago.js";
 import Comments from "./Comments";
+import Suggestions from "./Suggestions";
 import {Link} from "react-router-dom";
 
 function Video(){
@@ -113,6 +114,7 @@ function Video(){
     const handleComment=async()=>{
         try{
            await axios.post(`/comments/`,{videoId:currentVideo?._id,desc:currentVal});
+           
         }catch(err){
             console.log(err)
         }
@@ -162,7 +164,10 @@ function Video(){
                 <div id="info">
                     <p>{currentVideo?.views} views</p>
                     <p>{format(currentVideo?.createdAt)}</p>
-                    <p>{currentVideo?.tags}</p>
+                    <div style={{display:"flex",width:"10em",justifyContent:"space-between"}}>
+                    <span>Tags:</span>
+                    {currentVideo?.tags.map((tag)=><p style={{fontWeight:"400"}}>{tag}</p>)}
+                    </div>
                 </div>
                 <p>{currentVideo?.desc}</p>
             </div>
@@ -189,39 +194,8 @@ function Video(){
                 </div>            
             </div>:<h3 style={{fontWeight:"400"}}>To add a comment, <Link to="/signin" replace={true} style={{color:"inherit"}}>Sign in</Link> to your MS-Tube account</h3>}
              <Comments videoId={currentVideo?._id}/>
-        </div>
-        <div id="suggestions">
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
-        <div className="suggestion">
-            <div id="thumbnail">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s" height="94" width="168"></img>
-            </div> 
-            <div id="s-txt">
-                <h3>It is a long established fact that a reader will be distracted</h3>
-                <p>Channel</p>
-                <p>Views • When</p>
-            </div>
-        </div>
-        </div>
+        </div> 
+        <Suggestions tags={currentVideo?.tags}/>
         </div>
     )
 }
