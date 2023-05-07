@@ -84,7 +84,9 @@
 #icon{
  font-size: 28px;
 }
-
+#dropdown{
+    height: 2em;
+}
 #dropdown>button{
     border: 1px solid transparent;
     border-radius: 50px;

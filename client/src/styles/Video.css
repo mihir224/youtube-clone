@@ -1,7 +1,11 @@
 #video-div{
     display: flex;
-    padding:30px 20px 30px 40px  ;
-   justify-content: space-around;
+    padding:30px 10px 30px 20px  ;
+   justify-content: space-evenly;
+   width: 100%;
+ 
+  
+  
 }
 
 #vid{
@@ -30,7 +34,7 @@
 }
 #channel-container{
     display:flex;
-    width: 9em;
+    max-width: 10em;
     justify-content: space-between;
     align-items: center;
 }
@@ -42,8 +46,7 @@
     justify-content: space-between;
     align-items: center;
     width:17em
-}
-.sub-btn{
+}.sub-btn{
     display: flex;
     align-items: center;
     background-color:#282828;
@@ -86,10 +89,11 @@
     border-radius:10px ;
     padding:15px;
     font-size: 14px;
+
 }
 #info{
     display: flex;
-    width:18%;
+    width:23em;
     justify-content: space-between;
     font-weight: 600;
     padding-bottom: 5px;
@@ -134,12 +138,14 @@ textarea:focus-visible{
     justify-content: space-between;
     padding-top: 5px;
 }
+
 .suggestion{
     display: flex;
     color: #ffffffee;
     font-size: 12px;
-    padding-left: 20px;
-    padding-bottom:20px ;
+   padding:10px 20px;
+   gap:2px;
+ 
 }
 #s-txt{
     padding-left: 10px;
