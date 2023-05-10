@@ -6,6 +6,7 @@ import videoRoutes from "./routes/videos.js";
 import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
 import cookieParser from "cookie-parser";
+import cors from 'cors';
 
 const app=express();
 dotenv.config();
@@ -17,8 +18,13 @@ const connect=()=>{
         throw err;
     });
 }
-
+const PORT=process.env.PORT || 8500;
 //middleware
+app.use(
+    cors({
+        origin:"https://localhost:8500"
+    })
+)
 app.use(cookieParser());
 app.use(express.json()); //to allow express to use external json files
 app.use("/api/auth",authRoutes)
@@ -36,7 +42,7 @@ app.use((err,req,res,next)=>{
     })
 })
 
-app.listen(8500,()=>{ 
+app.listen(PORT,()=>{ 
     connect();
     console.log("server started on port 8500");
 })
