@@ -12,7 +12,7 @@ const app=express();
 dotenv.config();
 
 const connect=()=>{
-    mongoose.connect(process.env.MONGO).then(()=>{
+    mongoose.connect(`mongodb+srv://${process.env.MONGO}@cluster0.ly91ewg.mongodb.net/?retryWrites=true&w=majority`).then(()=>{
         console.log("DB connected.") 
     }).catch(err=>{ //throw err, if any
         throw err;
