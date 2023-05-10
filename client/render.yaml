@@ -1,0 +1,11 @@
+services:
+  - name: frontend
+    buildCommand: npm run build
+    environment:
+      NODE_ENV: production
+    routes:
+      - path: /
+        command: serve -s build
+    proxy:
+      - path: /
+        destination: https://youtube-clone-api224.onrender.com/api
