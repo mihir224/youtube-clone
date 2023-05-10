@@ -22,7 +22,7 @@ const PORT=process.env.PORT || 8500;
 //middleware
 app.use(
     cors({
-        origin:"https://localhost:8500"
+        origin:"https://youtube-clone224.onrender.com/"
     })
 )
 app.use(cookieParser());
