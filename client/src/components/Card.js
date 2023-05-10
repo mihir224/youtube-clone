@@ -11,7 +11,8 @@ function Card({video}){
     const [channel,setChannel]=React.useState({});
     React.useEffect(()=>{
         const fetchChannel=async ()=>{
-            const res=await axios.get(`/users/find/${video.userId}`);
+            const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
+            const res=await axios.get(`${url}/users/find/${video.userId}`);
             setChannel(res.data);
         }
         fetchChannel();

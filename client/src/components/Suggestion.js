@@ -8,7 +8,8 @@ function Suggestion({video}){
     useEffect(()=>{
         const fetchUser=async()=>{
             try{
-                const user =await axios.get(`/users/find/${video?.userId}`)
+                const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
+                const user =await axios.get(`${url}/users/find/${video?.userId}`)
                 setChannel(user.data);
             }catch(err){
                 console.log(err)

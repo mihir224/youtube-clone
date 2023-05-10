@@ -8,7 +8,8 @@ function Suggestions({tags}){
     useEffect(()=>{
         const fetchVideoByTag=async()=>{
             try{
-                const videoRes=await axios.get(`/videos/tags?tags=${tags}`)
+                const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
+                const videoRes=await axios.get(`${url}/videos/tags?tags=${tags}`)
                 setVideos(videoRes.data);
             }catch(err){
                 console.log(err)

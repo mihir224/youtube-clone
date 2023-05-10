@@ -6,7 +6,8 @@ function Home(props){
     const [videos,setVideos]=React.useState([]);
     React.useEffect(()=>{
         const fetchVideos=async()=>{
-            const res= await axios.get(`/videos/${props.type}`);
+            const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
+            const res= await axios.get(`${url}/videos/${props.type}`);
             setVideos(res.data);
         }
         fetchVideos();
