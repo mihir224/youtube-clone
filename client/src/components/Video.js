@@ -37,7 +37,6 @@ function Video(){
         resize:"none",
         overflow:"hidden",
         backgroundColor:"inherit",
-        border:"none",
         borderBottom: "1px solid gray",
         color:"white",
         float:"right",
@@ -68,7 +67,7 @@ function Video(){
         const scrollHeight=textareaRef.current.scrollHeight;
         textareaRef.current.style.height=scrollHeight+"px"; //changing the current height of the text area to whatever is returned by scroll height
     }
-    },[currentVal,comments]);
+    },[currentUser,currentVal,comments]);
     const handleLike=async()=>{
         if(!currentUser){
             alert("To like a video, first please login")
@@ -153,8 +152,8 @@ function Video(){
                 </div>}
                 <div id="vid-icons">
                     <div>
-                        <button id="like" className="vid-btns" type="button" onClick={handleLike}>{currentVideo.likes?.includes(currentUser?._id)?<ThumbUpIcon className="vid-icon" />:<ThumbUpOutlinedIcon className="vid-icon"/>} {currentVideo?.likes.length}</button>
-                        <button id="dislike" className="vid-btns" type="button" onClick={handleDislike}>{currentVideo.dislikes?.includes(currentUser?._id)?<ThumbDownIcon className="vid-icon"/>:<ThumbDownOutlinedIcon className="vid-icon"/>}</button>
+                        <button id="like" className="vid-btns" type="button" onClick={handleLike}>{currentVideo?.likes.includes(currentUser?._id)?<ThumbUpIcon className="vid-icon" />:<ThumbUpOutlinedIcon className="vid-icon"/>} {currentVideo?.likes.length}</button>
+                        <button id="dislike" className="vid-btns" type="button" onClick={handleDislike}>{currentVideo?.dislikes.includes(currentUser?._id)?<ThumbDownIcon className="vid-icon"/>:<ThumbDownOutlinedIcon className="vid-icon"/>}</button>
                     </div>
                     <button className="vid-btns" type="button"><ShortcutIcon className="vid-icon"/>Share</button>
                     <button className="vid-btns" type="button"><SaveAltIcon className="vid-icon"/>Save</button>
