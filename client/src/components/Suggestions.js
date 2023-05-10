@@ -8,7 +8,7 @@ function Suggestions({tags}){
     useEffect(()=>{
         const fetchVideoByTag=async()=>{
             try{
-                const videoRes=await axios.get(`/videos/tags?tags=${tags[0]}`)
+                const videoRes=await axios.get(`/videos/tags?tags=${tags}`)
                 setVideos(videoRes.data);
             }catch(err){
                 console.log(err)
