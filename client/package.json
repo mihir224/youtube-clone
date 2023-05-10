@@ -24,7 +24,7 @@
     "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:8500/api",
+  "proxy": "https://youtube-clone-api-yft7.onrender.com/api",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
