@@ -9,7 +9,7 @@ function Suggestion({video}){
         const fetchUser=async()=>{
             try{
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                const user =await axios.get(`${url}/users/find/${video?.userId}`)
+                const user =await axios.get(`${url}/users/find/${video?.userId}`,{withCredentials: true})
                 setChannel(user.data);
             }catch(err){
                 console.log(err)

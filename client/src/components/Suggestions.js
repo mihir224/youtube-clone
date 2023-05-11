@@ -9,7 +9,7 @@ function Suggestions({tags}){
         const fetchVideoByTag=async()=>{
             try{
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                const videoRes=await axios.get(`${url}/videos/tags?tags=${tags}`)
+                const videoRes=await axios.get(`${url}/videos/tags?tags=${tags}`,{withCredentials: true})
                 setVideos(videoRes.data);
             }catch(err){
                 console.log(err)

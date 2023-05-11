@@ -48,9 +48,9 @@ function Video(){
         const fetchData=async()=>{
             try{
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                const vidRes=await axios.get(`${url}/videos/find/${path}`);
-                const channelRes=await axios.get(`${url}/users/find/${vidRes.data?.userId}`)
-                const commentRes=await axios.get(`${url}/comments/${path}`);
+                const vidRes=await axios.get(`${url}/videos/find/${path}`,{withCredentials: true});
+                const channelRes=await axios.get(`${url}/users/find/${vidRes.data?.userId}`,{withCredentials: true})
+                const commentRes=await axios.get(`${url}/comments/${path}`,{withCredentials: true});
                 dispatch(fetchSuccess(vidRes.data))
                 setChannel(channelRes.data)
                 setComments(commentRes.data)
@@ -117,7 +117,7 @@ function Video(){
     const handleComment=async()=>{
         try{
             const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-           await axios.post(`${url}/comments/`,{videoId:currentVideo?._id,desc:currentVal});
+           await axios.post(`${url}/comments/`,{videoId:currentVideo?._id,desc:currentVal},{withCredentials: true});
            
         }catch(err){
             console.log(err)

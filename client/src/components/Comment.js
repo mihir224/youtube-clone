@@ -12,7 +12,7 @@ function Comment({comment}){
     useEffect(()=>{
         const fetchChannel=async()=>{
             const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                const fetchedChannel=await axios.get(`${url}/users/find/${comment.userId}`);
+                const fetchedChannel=await axios.get(`${url}/users/find/${comment.userId}`,{withCredentials: true});
                 setChannel(fetchedChannel.data);
         }
         fetchChannel();

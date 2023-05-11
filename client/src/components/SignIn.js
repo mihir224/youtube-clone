@@ -18,7 +18,7 @@ function SignIn(){
         dispatch(loginStart())
         try{
             const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-            const res=await axios.post(`${url}/auth/signin`,{name,password}); //second parameter here is the request body
+            const res=await axios.post(`${url}/auth/signin`,{name,password},{withCredentials: true}); //second parameter here is the request body
             dispatch(loginSuccess(res.data))
             //console.log(res.data)
         }catch(err){
@@ -31,7 +31,7 @@ function SignIn(){
         dispatch(loginStart());
         try{
             const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-            const res=await axios.post(`${url}/auth/signup`,{name,email,password});
+            const res=await axios.post(`${url}/auth/signup`,{name,email,password},{withCredentials: true});
             dispatch(loginSuccess(res.data))
         }catch(err){
             dispatch(loginFailure(err))
@@ -42,7 +42,7 @@ function SignIn(){
         try{
             await signInWithPopup(auth,provider).then((result)=>{ //this result consists of our user info provided by google
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                axios.post(`${url}/auth/google`,{name:result.user.displayName,email:result.user.email,img:result.user.photoURL})
+                axios.post(`${url}/auth/google`,{name:result.user.displayName,email:result.user.email,img:result.user.photoURL},{withCredentials: true})
                 .then((res)=>{ //after verifying the info sent by google with info in our DB, we simply return the info of the user that is saved in the DB.
                     dispatch(loginSuccess(res.data))
                 })

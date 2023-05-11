@@ -11,7 +11,7 @@ function Comments({videoId}){
         const fetchComment=async()=>{
             try{
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-            const fetchedComments=await axios.get(`${url}/comments/${videoId}`)
+            const fetchedComments=await axios.get(`${url}/comments/${videoId}`,{withCredentials: true})
             setComments(fetchedComments.data);
             }catch(err){
                 console.log(err)
