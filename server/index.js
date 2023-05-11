@@ -23,7 +23,8 @@ const PORT=process.env.PORT || 8500;
 app.use(
     cors({
         origin:"https://youtube-clone224.onrender.com",
-        methods:["GET","POST","PUT","PATCH","DELETE"]
+        methods:["GET","POST","PUT","PATCH","DELETE"],
+        credentials:true
     })
 )
 app.use(cookieParser());
