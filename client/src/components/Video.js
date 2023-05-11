@@ -76,7 +76,7 @@ function Video(){
         try{
             if(currentUser){
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                await axios.put(`${url}/users/like/${currentVideo?._id}`,{withCredentials: true})
+                await axios.put(`${url}/users/like/${currentVideo?._id}`,{},{withCredentials: true})
                 dispatch(like(currentUser?._id))
             }
         }catch(err){
@@ -90,7 +90,7 @@ function Video(){
         try{
             if(currentUser){
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                await axios.put(`${url}/users/dislike/${currentVideo?._id}`,{withCredentials: true})
+                await axios.put(`${url}/users/dislike/${currentVideo?._id}`,{},{withCredentials: true})
                 dispatch(dislike(currentUser?._id))
             }
         }catch(err){
@@ -105,8 +105,8 @@ function Video(){
             if(currentUser){
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
                 currentUser?.subscribedUsers.includes(channel?._id)?
-                    await axios.put(`${url}/users/unsub/${channel?._id}`,{withCredentials: true}):
-                    await axios.put(`${url}/users/sub/${channel?._id}`,{withCredentials: true})
+                    await axios.put(`${url}/users/unsub/${channel?._id}`,{},{withCredentials: true}):
+                    await axios.put(`${url}/users/sub/${channel?._id}`,{},{withCredentials: true})
                 dispatch(subscribe(channel?._id))
         }
         }catch(err){
