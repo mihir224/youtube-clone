@@ -30,7 +30,7 @@ function Searchbar({showNav,setShowNav}){
         <div id="logo-container">
                 <div id="hamburger" onClick={()=>setShowNav(!showNav)}><MenuIcon id="icon"/></div>
                 <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
-                    <img src={logo} height="25" width="40"></img><h2>MS-Tube</h2>
+                    <img src={logo} height="25" width="40"></img><h2>MS Tube</h2>
                 </div></Link>
             </div>
             <div id="search-area">
