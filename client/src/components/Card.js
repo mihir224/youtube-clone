@@ -21,7 +21,7 @@ function Card({video}){
         <div id="card"> 
             <Link to={`/video/${video._id}`}><div id="thumbnail"><img style={{width:"100%"}} src={video.imgUrl} height="190"></img></div></Link>
             <div id="card-body">
-            <div id="content">
+            <div id="card-content">
                 <div id="channel-dp">
                     <img src={channel.img} style={{objectFit:"cover"}} height="40" width="40"></img>
                 </div>

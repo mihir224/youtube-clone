@@ -169,8 +169,7 @@ function Video(){
                     <p>{currentVideo?.views} views</p>
                     <p>{format(currentVideo?.createdAt)}</p>
                     <div style={{display:"flex",width:"10em",justifyContent:"space-between"}}>
-                    <span>Tags:</span>
-                    {currentVideo?.tags.map((tag)=><p style={{fontWeight:"400"}}>{tag}</p>)}
+                    <span id='tag'>Tags: {currentVideo?.tags.map((tag)=><p style={{fontWeight:"400"}}>{tag}</p>)}</span>
                     </div>
                 </div>
                 <p>{currentVideo?.desc}</p>
@@ -199,7 +198,7 @@ function Video(){
             </div>:<h3 style={{fontWeight:"400"}}>To add a comment, <Link to="/signin" replace={true} style={{color:"inherit"}}>Sign in</Link> to your MS-Tube account</h3>}
              <Comments videoId={currentVideo?._id}/>
         </div> 
-        <Suggestions tags={currentVideo?.tags}/>
+        {isLoading?<span style={{color:'white',width:'25%', textAlign:'center'}}>Loading Suggestions...</span>:<Suggestions tags={currentVideo?.tags}/>}
         </div>
     )
 }

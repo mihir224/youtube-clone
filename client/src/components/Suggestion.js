@@ -25,7 +25,7 @@ function Suggestion({video}){
             <div id="s-txt">
                 <h3>{video.title}</h3>
                 <p>{channel?.name}</p>
-                <p>{video.views} • {format(video.createdAt)}</p>
+                <p>{video.views} views • {format(video.createdAt)}</p>
             </div>
     </div>
     ):<div>Loading</div>

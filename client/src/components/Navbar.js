@@ -27,7 +27,7 @@ function Navbar({showNav}){
         <div id={showNav?"nav-bar":"no-show"}>
            <div id="nav">
         <ul className="nav-list">
-            <Link to="/" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/> <span>Home</span></li></Link>
+            <Link to="/" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><HomeIcon  style={{fontSize:"25px"}} className="nav-icons"/><span>Home</span></li></Link>
             <Link to="/trending" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><ExploreRoundedIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Explore</span></li></Link>
             <Link to="/subscribed" style={{textDecoration: "none",color: "inherit"}}><li className="nav-items"><SubscriptionsIcon style={{fontSize:"25px"}} className="nav-icons"/> <span>Subscriptions</span></li></Link>
         </ul>

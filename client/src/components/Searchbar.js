@@ -28,7 +28,7 @@ function Searchbar({showNav,setShowNav}){
     return (
         <div id="search-bar" >
         <div id="logo-container">
-                <div id="hamburger" onClick={()=>setShowNav(!showNav)}><MenuIcon id="icon"/></div>
+                <div id="hamburger" onClick={()=>setShowNav(!showNav)}><button type='button' className='nav-btn'><MenuIcon id="icon"/></button></div>
                 <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
                     <img src={logo} height="25" width="40"></img><h2>MS Tube</h2>
                 </div></Link>
@@ -39,8 +39,8 @@ function Searchbar({showNav,setShowNav}){
             </div>
             {currentUser?
             <div id="n-icons">
-                <VideoCallIcon id="icon"/>
-                <NotificationsIcon id="icon"/>
+               <button type='button' className='nav-btn'><VideoCallIcon id="icon"/></button>
+               <button type='button' className='nav-btn'><NotificationsIcon id="icon"/></button>
                <div id="dropdown">
                 <button type="button"  style={customStyling}></button>
                 <div id="dropdown-content" >
