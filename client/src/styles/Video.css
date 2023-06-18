@@ -2,12 +2,8 @@
     display: flex;
     padding:30px 10px 30px 20px  ;
    justify-content: space-evenly;
-   width: 100%;
- 
-  
-  
+   width: 100%; 
 }
-
 #vid{
     max-height: 720px;
     object-fit: cover;
@@ -37,15 +33,17 @@
     max-width: 10em;
     justify-content: space-between;
     align-items: center;
+    gap: 4px;
 }
 #channel-desc{
     font-size: 15px;
+
 }
 #channel-details{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:17em
+    width:18em;
 }.sub-btn{
     display: flex;
     align-items: center;
@@ -90,13 +88,18 @@
     padding:15px;
     font-size: 14px;
 
+
 }
 #info{
     display: flex;
-    width:23em;
-    justify-content: space-between;
+    width: auto;
     font-weight: 600;
+    gap:16px;
     padding-bottom: 5px;
+}
+#tag{
+    display: flex; 
+    gap:5px;
 }
 #comment{
     display: flex;
@@ -117,14 +120,13 @@ textarea:focus-visible{
     align-self: flex-end;
     padding-top:10px ;
     display: flex;
-    width: 26%;
+    width: 22%;
     justify-content: space-between;
 }
 .comments{
     display: flex;
-    justify-content: space-between;
     padding-top:20px;
-
+    gap:12px;
 }
 #cmnt-body{
     width:44.8em;

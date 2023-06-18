@@ -2,12 +2,12 @@
     color: white;
     display: flex;
     justify-content: space-between;
-    top:0px;
+    top:5px;
     position: sticky;
     align-items: center;
-    background-color: inherit;
-    padding: 18px 26px 5px 26px;
-    z-index: 4;
+    background-color:inherit;
+    padding: 18px 26px;
+    z-index: 15;
 }
 #hamburger{
     cursor:pointer;
@@ -15,6 +15,12 @@
 }
 #hamburger:hover{
     opacity: 1;
+}
+.nav-btn{
+    background-color: inherit;
+    border: transparent;
+    color:white;
+    padding:2px;
 }
 #logo-container{
     display: flex;
@@ -164,7 +170,7 @@
         align-items: center;
     }
     #logo>h2{
-        font-size: 24px;
+        font-size: 23.5px;
         vertical-align: bottom;
     }
     }

@@ -1,10 +1,9 @@
 #card{
-    width:22em;
+    width:23em;
     border-radius: 12px;
-    height: 40vh;
+    height: 16.5em;
     color: white;
-    padding-bottom:10px;
-
+    
 }
 #thumbnail>img{
     /* width: 100%; */
@@ -16,7 +15,7 @@
     height: 25%;
     padding-top:5px;
 }
-#content{
+#card-content{
     display: flex;
     justify-content: space-between;
     height: 100%;
@@ -30,8 +29,6 @@
     margin:0;
     padding-bottom:4px;
     font-size: 18px;
-  
-
 }
 #video-details>p{
     margin:0;
