@@ -6,7 +6,7 @@
     /* remember this - position sticky needs some threshold to get activated thus we make top 10px */
     top:65px;
     position: sticky; 
-    z-index: 5;   
+    z-index:10;   
     width: 20em;
     height: 100%;
     

@@ -2,7 +2,7 @@
     display: flex;
     padding:30px 10px 30px 20px  ;
    justify-content: space-evenly;
-   width: 100%; 
+   width: 100%;
 }
 #vid{
     max-height: 720px;
@@ -159,3 +159,10 @@ h2,h3,p{
     padding: 0;
     margin: 0;
 }
+
+@media screen and (max-width:1200px) {
+    #video-div{
+        flex-direction: column;
+    }
+}
+  
