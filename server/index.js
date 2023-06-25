@@ -21,7 +21,8 @@ const connect=()=>{
 const PORT=process.env.PORT || 8500;
 //middleware
 const allowedOrigins = [
-    "https://youtube-clone224.onrender.com"
+    "https://youtube-clone224.onrender.com",
+    "https://ms-tube.netlify.app"
   ];
 app.use(
     cors({
