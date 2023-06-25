@@ -20,9 +20,12 @@ const connect=()=>{
 }
 const PORT=process.env.PORT || 8500;
 //middleware
+const allowedOrigins = [
+    "https://youtube-clone224.onrender.com"
+  ];
 app.use(
     cors({
-        origin:"https://youtube-clone224.onrender.com",
+        origin:allowedOrigins,
         methods:["GET","POST","PUT","PATCH","DELETE"],
         credentials:true
     })
