@@ -19,9 +19,10 @@ import FlagRoundedIcon from '@mui/icons-material/FlagOutlined';
 import HelpRoundedIcon from '@mui/icons-material/HelpOutlined';
 import SettingsBrightnessRoundedIcon from '@mui/icons-material/SettingsBrightnessOutlined';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleOutlined';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-function Navbar({showNav}){
+function Navbar(){
+    const showNav=useSelector(state=>state.navbar.open);
     const currentUser=useSelector(state=>state.user.currentUser);
     return (
         <div id={showNav?"nav-bar":"no-show"}>

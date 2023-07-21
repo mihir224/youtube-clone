@@ -10,11 +10,13 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleOutlined'
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
+import {setOpen} from "../redux/navbarSlice";
 
-function Searchbar({showNav,setShowNav}){
+function Searchbar(){
     const dispatch=useDispatch();
     const currentUser=useSelector(state=>state.user.currentUser); 
     // const [dropdown,setDropDown]=useState(false);
+    const showNav=useSelector(state=>state.navbar.open);
     const customStyling={
         background:`url(${currentUser?.img}) no-repeat`,
         backgroundSize:"40px",
@@ -28,7 +30,7 @@ function Searchbar({showNav,setShowNav}){
     return (
         <div id="search-bar" >
         <div id="logo-container">
-                <div id="hamburger" onClick={()=>setShowNav(!showNav)}><button type='button' className='nav-btn'><MenuIcon id="icon"/></button></div>
+                <div id="hamburger" onClick={()=>dispatch(setOpen())}><button type='button' className='nav-btn'><MenuIcon id="icon"/></button></div>
                 <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
                     <img src={logo} height="25" width="40"></img><h2>MS Tube</h2>
                 </div></Link>

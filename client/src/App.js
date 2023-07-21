@@ -9,16 +9,15 @@ import { useState } from 'react';
 
 
 function App() {
-  const [showNav, setShowNav]=useState(true);
   return (
     <BrowserRouter>
     <div className="App">
     <div id="body-section">
     <div id="search-body">
-    <Searchbar showNav={showNav} setShowNav={setShowNav}/>
+    <Searchbar/>
     </div>
    <div id="content">
-    <Navbar showNav={showNav}/>
+    <Navbar/>
     <Routes>
       <Route path="/">
         <Route index element={<Home type="random"/>}/>
