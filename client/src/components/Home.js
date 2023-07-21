@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import axios from "axios";
-import {useSelector} from "react-redux";
+import { Oval } from 'react-loader-spinner';
 
 function Home(props){
     const [videos,setVideos]=React.useState([]);
@@ -17,11 +17,28 @@ function Home(props){
         fetchVideos();
     },[props.type])
     console.log(videos)
-    return isLoading?<h2 id='loading-txt'>Loading...</h2>:(
+    return (
         <div id="cards">
-            {videos.map((video)=>{
-                return <Card key={video._id} video={video}/>
-            })}
+            {isLoading ? (
+            <div style={{paddingTop:'150px'}}>
+                <Oval
+                height={80}
+                width={80}
+                color="white"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel='oval-loading'
+                secondaryColor="grey"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+                />
+            </div>
+            ) : (
+            videos?.map((video) => {
+                return <Card key={video._id} video={video} />;
+            })
+            )}
         </div>
     )
 

@@ -18,6 +18,8 @@ import {format} from "timeago.js";
 import Comments from "./Comments";
 import Suggestions from "./Suggestions";
 import {Link} from "react-router-dom";
+import { Oval } from 'react-loader-spinner';
+
 
 function Video(){
     const dispatch=useDispatch();
@@ -198,7 +200,20 @@ function Video(){
             </div>:<h3 style={{fontWeight:"400"}}>To add a comment, <Link to="/signin" replace={true} style={{color:"inherit"}}>Sign in</Link> to your MS-Tube account</h3>}
              <Comments videoId={currentVideo?._id}/>
         </div> 
-        {isLoading?<span style={{color:'white',width:'25%', textAlign:'center'}}>Loading Suggestions...</span>:<Suggestions tags={currentVideo?.tags}/>}
+        {isLoading?
+            <Oval
+                height={50}
+                width={50}
+                color="white"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel='oval-loading'
+                secondaryColor="grey"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+                />
+        :<Suggestions tags={currentVideo?.tags}/>}
         </div>
     )
 }
