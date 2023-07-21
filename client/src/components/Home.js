@@ -2,10 +2,12 @@ import React from "react";
 import Card from "./Card";
 import axios from "axios";
 import { Oval } from 'react-loader-spinner';
+import {useSelector} from 'react-redux';
 
 function Home(props){
     const [videos,setVideos]=React.useState([]);
     const [isLoading,setIsLoading]=React.useState(false);
+    const showNav=useSelector(state=>state.navbar.open);
     React.useEffect(()=>{
         setIsLoading(true);
         const fetchVideos=async()=>{
@@ -20,7 +22,7 @@ function Home(props){
     return (
         <div id="cards">
             {isLoading ? (
-            <div style={{paddingTop:'150px'}}>
+            <div style={{paddingTop:`${showNav?"":"170px"}`}}>
                 <Oval
                 height={80}
                 width={80}
