@@ -6,16 +6,16 @@ In this project I've tried to create a video sharing app where one can share the
 
 1. Clone the repo
 
-`git clone https://github.com/mihir224/youtube-clone`
+   `git clone https://github.com/mihir224/youtube-clone`
 
 2. Run
    
-`npm install`
+   `npm install`
 
 3. Update your mongoDB credentials in the env file
 
 4. Then, in both the client and server directories, run separately:
 
-`npm start`
+   `npm start`
 
-the project would be accessible at `localhost:3000`
+the project should now be accessible at `localhost:3000`
