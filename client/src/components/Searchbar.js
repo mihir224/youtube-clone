@@ -10,11 +10,13 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleOutlined'
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
-import {setOpen} from "../redux/navbarSlice";
+import {setOpen,setUploadOpen} from "../redux/navbarSlice";
+import Upload from "./Upload";
 
 function Searchbar(){
     const dispatch=useDispatch();
     const currentUser=useSelector(state=>state.user.currentUser); 
+    const uploadOpen=useSelector(state=>state.navbar.uploadOpen);
     // const [dropdown,setDropDown]=useState(false);
     const showNav=useSelector(state=>state.navbar.open);
     const customStyling={
@@ -28,6 +30,7 @@ function Searchbar(){
         dispatch(logout());
     }
     return (
+        <>
         <div id="search-bar" >
         <div id="logo-container">
                 <div id="hamburger" onClick={()=>dispatch(setOpen())}><button type='button' className='nav-btn'><MenuIcon id="icon"/></button></div>
@@ -41,7 +44,7 @@ function Searchbar(){
             </div>
             {currentUser?
             <div id="n-icons">
-               <button type='button' className='nav-btn'><VideoCallIcon id="icon"/></button>
+               <button type='button' className='nav-btn'><VideoCallIcon id="icon" onClick={()=>dispatch(setUploadOpen())} /></button>
                <button type='button' className='nav-btn'><NotificationsIcon id="icon"/></button>
                <div id="dropdown">
                 <button type="button"  style={customStyling}></button>
@@ -55,6 +58,10 @@ function Searchbar(){
             :<Link to="signin" style={{textDecoration: "none",fontSize: "14px",listStyle:"none"}}><button id="signin-btn" type="submit"><AccountCircleRoundedIcon/><span>Sign in</span></button></Link>
             }
         </div>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+        {uploadOpen&&<Upload setUploadOpen={setUploadOpen}/>}
+        </div>
+        </>
     )
 }
 

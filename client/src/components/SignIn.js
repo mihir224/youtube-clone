@@ -20,10 +20,8 @@ function SignIn(){
             const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
             const res=await axios.post(`${url}/auth/signin`,{name,password},{withCredentials: true}); //second parameter here is the request body
             dispatch(loginSuccess(res.data))
-            //console.log(res.data)
         }catch(err){
             dispatch(loginFailure(err));
-            //console.log(err)
         }
     }
     const handleSignin=async(event)=>{
