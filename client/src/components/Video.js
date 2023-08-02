@@ -62,6 +62,9 @@ function Video(){
         }
         fetchData();
     },[path,dispatch])
+    useEffect(()=>{
+        console.log(currentUser);
+    },[])
     const textareaRef=React.useRef(null);
     const [currentVal, setCurrentVal]=React.useState("");
     React.useEffect(()=>{

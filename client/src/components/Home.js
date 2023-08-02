@@ -18,7 +18,7 @@ function Home(props){
         }
         fetchVideos();
     },[props.type])
-    console.log(videos)
+
     return (
         <div id="cards">
             {isLoading ? (

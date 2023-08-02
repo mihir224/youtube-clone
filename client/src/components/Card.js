@@ -9,6 +9,7 @@ import {format} from "timeago.js";
 
 function Card({video}){
     const [channel,setChannel]=React.useState({});
+
     React.useEffect(()=>{
         const fetchChannel=async ()=>{
             const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
