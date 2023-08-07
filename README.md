@@ -16,5 +16,5 @@ In this project I've tried to create a video sharing app where one can share the
 5. Then, in both the client and server directories, run `npm start` separately.
 6. The project should now be accessible at `localhost:3000`
 
-### Note
+### ISSUES
 ***There seems to be an issue with the storage of access token in production. For this reason, in production mode, the subscriber count and other post operations aren't working as intended. They're working fine in dev mode. I'm currently working to resolve this.***
