@@ -11,7 +11,7 @@ function Search(){
         (async ()=>{
             try{
                 const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-                const res=await axios.get(`${url}/api/videos/search${query}`,{withCredentials: true});
+                const res=await axios.get(`${url}/videos/search${query}`,{withCredentials: true});
                 setVideos(res.data);
             }
             catch(err){
