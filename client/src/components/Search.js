@@ -3,7 +3,6 @@ import {useLocation} from "react-router-dom";
 import axios from "axios";
 import Card from './Card';
 
-
 function Search(){
     const[videos,setVideos] =useState([]);
     const query=useLocation().search;
@@ -18,9 +17,9 @@ function Search(){
                 console.log(err);
             }
         })();
-    });
+    },[]);
     return(
-        <div>
+        <div id='cards' style={{display:'flex',alignItems:'flex-start', justifyContent:'center'}}>
             {videos?.map((video) => {
                 return <Card key={video._id} video={video} />;
             })}
