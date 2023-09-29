@@ -19,8 +19,8 @@ function Suggestions({tags}){
     },[tags])
     return (
         <div id="suggestions">
-        {videos?.map(video=>(
-            <Suggestion video={video} />
+        {videos?.map((video,index)=>(
+            <Suggestion key={index} video={video} />
         ))}
         
         </div>

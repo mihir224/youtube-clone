@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../styles/Searchbar.css";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import logo from "../images/logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -13,21 +13,27 @@ import { logout } from "../redux/userSlice";
 import {setOpen,setUploadOpen} from "../redux/navbarSlice";
 import Upload from "./Upload";
 
+
 function Searchbar(){
+    const navigate=useNavigate();
     const dispatch=useDispatch();
     const currentUser=useSelector(state=>state.user.currentUser); 
     const uploadOpen=useSelector(state=>state.navbar.uploadOpen);
-    // const [dropdown,setDropDown]=useState(false);
-    const showNav=useSelector(state=>state.navbar.open);
+    const [query,setQuery]=useState("");
+    useEffect(()=>{
+        console.log(query);
+    },[query])
     const customStyling={
         background:`url(${currentUser?.img}) no-repeat`,
         backgroundSize:"40px",
         backgroundPosition:"-5px -2px"
     }
-   
     const handleLogout=(event)=>{
         event.preventDefault();
         dispatch(logout());
+    }
+    const handleClick=(event)=>{
+        navigate(`/search?q=${query}`);
     }
     return (
         <>
@@ -39,8 +45,8 @@ function Searchbar(){
                 </div></Link>
             </div>
             <div id="search-area">
-            <input id="search" type="search" placeholder="Search"></input>
-            <button id="search-btn" type="submit"><SearchIcon id="search-icon"/></button>
+            <input id="search" type="search" placeholder="Search" onChange={(e)=>setQuery(e.target.value)}></input>
+            <button id="search-btn" type="submit" onClick={(event)=>{handleClick(event)}} ><SearchIcon id="search-icon"/></button>
             </div>
             {currentUser?
             <div id="n-icons">

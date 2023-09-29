@@ -174,7 +174,7 @@ function Video(){
                     <p>{currentVideo?.views} views</p>
                     <p>{format(currentVideo?.createdAt)}</p>
                     <div style={{display:"flex",width:"10em",justifyContent:"space-between"}}>
-                    <span id='tag'>Tags: {currentVideo?.tags.map((tag)=><p style={{fontWeight:"400"}}>{tag}</p>)}</span>
+                    <span id='tag'>Tags: {currentVideo?.tags.map((tag,index)=><p key={index} style={{fontWeight:"400"}}>{tag}</p>)}</span>
                     </div>
                 </div>
                 <p>{currentVideo?.desc}</p>

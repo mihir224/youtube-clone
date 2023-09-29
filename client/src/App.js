@@ -4,8 +4,8 @@ import Searchbar from './components/Searchbar';
 import SignIn from './components/SignIn';
 import Home from './components/Home';
 import Video from './components/Video';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import { useState } from 'react';
+import Search from './components/Search';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
       <Route path="/">
         <Route index element={<Home type="random"/>}/>
         <Route path="trending" element={<Home type="trending"/>}/>
+        <Route path="search" element={<Search />}/>
         <Route path="subscribed" element={<Home type="subscribed"/>}/>
         <Route path="video">
           <Route path=":id" element={<Video/>}/>
