@@ -10,8 +10,8 @@ const navbarSlice=createSlice({
         setOpen(state){
             state.open=!state.open;
         },
-        setUploadOpen(state){
-            state.uploadOpen=!state.uploadOpen;
+        setUploadOpen(state,action){
+            state.uploadOpen=action.payload;
         }
     }
 })

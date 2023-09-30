@@ -35,6 +35,10 @@ function Searchbar(){
     const handleClick=(event)=>{
         navigate(`/search?q=${query}`);
     }
+    const handleUploadClick=(event)=>{
+        event.stopPropagation();
+        dispatch(setUploadOpen(true));
+    }
     return (
         <>
         <div id="search-bar" >
@@ -50,7 +54,7 @@ function Searchbar(){
             </div>
             {currentUser?
             <div id="n-icons">
-               <button type='button' className='nav-btn'><VideoCallIcon id="icon" onClick={()=>dispatch(setUploadOpen())} /></button>
+               <button type='button' className='nav-btn'><VideoCallIcon id="icon" onClick={handleUploadClick} /></button>
                <button type='button' className='nav-btn'><NotificationsIcon id="icon"/></button>
                <div id="dropdown">
                 <button type="button"  style={customStyling}></button>

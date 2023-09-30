@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import '../styles/Upload.css';
 import CloseIcon from '@mui/icons-material/Close';
 import VideoCallIcon from '@mui/icons-material/VideoCallOutlined';
@@ -18,6 +18,7 @@ function Upload({setUploadOpen}){
     const [videoPerc,setVideoPerc]=useState(0);
     const [input,setInput]=useState({});
     const [tags,setTags]=useState([])
+    const uploadRef=useRef(null);
 
     const uploadFile=(file,type)=>{
         const storage = getStorage(app);
@@ -82,11 +83,23 @@ function Upload({setUploadOpen}){
         }
     }
 
+    const handleClickOutside=(e)=>{
+        if(uploadRef.current&&!uploadRef.current.contains(e.target)){
+            dispatch(setUploadOpen(false));
+        }
+    }
+
+    useEffect(()=>{
+        document.addEventListener('click',handleClickOutside);
+        return ()=>{ //returning a cleanup function to unmount the event listener
+            document.removeEventListener('click',handleClickOutside);
+        }
+    },[])
     return (
-        <div id='upload'>
+        <div id='upload' ref={uploadRef}>
             <div>
                 <h4 style={{fontSize:'28px',verticalAlign:'bottom'}}>Upload a new video </h4>
-                <div onClick={()=>dispatch(setUploadOpen())} ><CloseIcon className='close-icon'/></div>
+                <div onClick={()=>dispatch(setUploadOpen(false))} ><CloseIcon className='close-icon'/></div>
             </div>
             <div className='upload-div'>
             <label className='file-label' htmlFor='uploaded-video'><span id='upload-text'>Choose Video</span> <VideoCallIcon className='upload-icon'/></label>
