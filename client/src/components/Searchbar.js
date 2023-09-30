@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/Searchbar.css";
 import { Link, useNavigate } from "react-router-dom"
 import logo from "../images/logo.png";
@@ -20,9 +20,9 @@ function Searchbar(){
     const currentUser=useSelector(state=>state.user.currentUser); 
     const uploadOpen=useSelector(state=>state.navbar.uploadOpen);
     const [query,setQuery]=useState("");
-    useEffect(()=>{
-        console.log(query);
-    },[query])
+    // useEffect(()=>{
+    //     console.log(query);
+    // },[query])
     const customStyling={
         background:`url(${currentUser?.img}) no-repeat`,
         backgroundSize:"40px",
@@ -41,7 +41,7 @@ function Searchbar(){
         <div id="logo-container">
                 <div id="hamburger" onClick={()=>dispatch(setOpen())}><button type='button' className='nav-btn'><MenuIcon id="icon"/></button></div>
                 <Link to="/" style={{textDecoration: "none",fontSize: "14px"}}><div id="logo">
-                    <img src={logo} height="25" width="40"></img><h2>MS Tube</h2>
+                    <img src={logo} height="25" width="40" alt="logo"></img><h2>MS Tube</h2>
                 </div></Link>
             </div>
             <div id="search-area">
