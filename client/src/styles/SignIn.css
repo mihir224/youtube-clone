@@ -2,26 +2,26 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding:0
+    padding:0;
 }
 #sign-in{
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    margin-top: 70px;
+    margin: 30px 0px;
     height: 30em;
     border:1px solid rgba(255, 255, 255, 0.075);
     border-radius: 5px;
-    box-shadow: 0px 0px 1px 1px rgba(136, 136, 136, 0.397); /*any color you want*/
+    box-shadow: 0px 0px 1px 1px rgba(136, 136, 136, 0.397); 
     color: white;
-    width: 30%;
+    width: 350px;
     padding:10px 20px;
     transition-duration: 0.2s;
     transform: translateX(-40px);
 }
 #sign-in>input{
-    border:1px solid rgba(255, 255, 255, 0.185);
+    border:1px solid rgba(255, 255, 255, 0.151);
     border-radius: 5px;
     background-color: inherit;
     padding: 5px;
@@ -32,6 +32,12 @@
     border:8px solid transparent;
     color: white;
     border-radius: 5px;
+}
+#g-signin{
+    display: flex;
+    align-items: center;
+    background-color: red;
+    gap: 4px;
 }
 @media screen and (max-width:1200px) {
     #sign-in{

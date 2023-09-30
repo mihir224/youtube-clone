@@ -6,6 +6,7 @@ import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice";
 import { signInWithPopup } from "@firebase/auth";
 import { auth, provider } from "../firebase";
 import {Navigate} from "react-router-dom";
+import GoogleIcon from '@mui/icons-material/Google';
 
 function SignIn(){
     const dispatch=useDispatch();
@@ -57,7 +58,7 @@ function SignIn(){
         <input type="text"  name="username" placeholder="Username" onChange={(event)=>{setName(event.target.value)}}></input>
         <input type="password"  name="password" placeholder="Enter your password" onChange={(event)=>{setPassword(event.target.value)}}></input>
         <button type="submit" onClick={handleLogin}>Sign in</button>
-        <button type="submit" onClick={handleClick}>Sign in with google</button>
+        <button type="submit" id="g-signin" onClick={handleClick}>Sign in with google <GoogleIcon/></button>
         <p>OR</p>
         <h2>Sign up</h2>
         <input type="text"  name="username" placeholder="Username" onChange={(event)=>{setName(event.target.value)}}></input>
