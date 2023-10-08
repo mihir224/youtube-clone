@@ -16,5 +16,5 @@ In this project I've tried to create a video sharing app where one can share the
 5. Then, in both the client and server directories, run `npm start` separately.
 6. The project should now be accessible at `localhost:3000`
 
-### ISSUES
-***There seems to be an issue with the storage of access token in production. For this reason, in production mode, the subscriber count and other post operations aren't working as intended. They're working fine in dev mode. I'm currently working to resolve this.***
+### IMPORTANT
+***The cookie is sent by the server is http only (to avoid potential abuse by hackers) and for that reason, it can't be read by javascript in the deployed client webpage. Thus, in deployment the put/patch/delete operations don't work as intended as the user cannot be verified by the server since there is no cookie stored.***
