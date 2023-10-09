@@ -108,7 +108,7 @@ export const showSubscribed=async(req,res,next)=>{
                 return Video.find({userId:channelId}) 
             })
         ); 
-        res.status(200).json(list.flat().sort((a,b)=>b.createdAt-a.createdAt)); //using only list will return a nested array as we are pushing a list into a json body thus we use the flat method to flatten the list and the sort method sorts the list in accordance with the data of creation in order to get the latest video
+        res.status(200).json(list.flat().sort((a,b)=>b.createdAt-a.createdAt)); //using only list will return a nested array (as we're fetching videos belonging to different users) and we are pushing a list into a json body thus we use the flat method to flatten the list and the sort method sorts the list in accordance with the data of creation in order to get the latest video
     }catch(err){
         next(err)
     }

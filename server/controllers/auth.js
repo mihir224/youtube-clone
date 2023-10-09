@@ -52,7 +52,7 @@ export const googleAuth=async(req,res,next)=>{
             res
             .cookie("access_token",token,{ //to send the access token to the client
             //to use cookies, we import the cookie-parser
-            httpOnly:true //this will make our application more secure such that third party scripts will not be able to use our cookie 
+            httpOnly:false //this will make our application more secure such that third party scripts will not be able to use our cookie 
             })
             .status(200)
             .json(user._doc);
@@ -66,7 +66,7 @@ export const googleAuth=async(req,res,next)=>{
             const token=jwt.sign({id:savedUser._id},process.env.JWT)
             res
             .cookie("access_token",token,{ 
-            httpOnly:true 
+            httpOnly:false 
             })
             .status(200)
             .json(savedUser._doc);
