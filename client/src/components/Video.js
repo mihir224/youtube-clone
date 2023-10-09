@@ -133,15 +133,6 @@ function Video(){
         <div id="video-div">
         <div id="video-section">
             <div id="video">
-                {/* <iframe 
-                    width="800" 
-                    height="440" 
-                    src="https://www.youtube.com/embed/yIaXoop8gl4?rel=0&autoplay=1" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen="allowfullscreen">
-                </iframe> */}
                 <video src={currentVideo?.videoUrl} id="vid" controls></video>
             </div>
             <h2 id="video-title">{currentVideo?.title}</h2>
