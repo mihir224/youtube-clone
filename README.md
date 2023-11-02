@@ -17,4 +17,4 @@ In this project I've tried to create a video sharing app where one can share the
 6. The project should now be accessible at `localhost:3000`
 
 ### IMPORTANT
-***The cookie sent by the server is http only (to avoid potential abuse by hackers) and for that reason, it can't be read by browser javascript. Thus, in deployment the put/patch/delete operations don't work as intended at the client side as the user cannot be verified by the server since there is no cookie stored.***
+***The cookie sent by the server is http only (to avoid potential abuse by hackers) and for that reason, it can't be read by browser javascript. Thus, in deployment the put/patch/delete operations don't work as intended at the client side as the user cannot be verified by the server since there is no cookie stored. Moreover, after signing up, it is required to sign in explicitly as jwt is created only when the user signs in***
