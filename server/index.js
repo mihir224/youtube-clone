@@ -20,10 +20,10 @@ const connect=()=>{
 }
 const PORT=process.env.PORT || 8500;
 //middleware
-const allowedOrigins = [
+const allowedOrigins = ["http://localhost:3000",
     "https://youtube-clone224.onrender.com",
     "https://ms-tube.netlify.app"
-  ];
+   ];
 app.use(
     cors({
         origin:allowedOrigins,
@@ -40,7 +40,7 @@ app.use("/api/comments",commentRoutes);
 
 app.use((err,req,res,next)=>{
     const status=err.status||500;
-    const message=err.message||"Something went wrong!";
+    const message=err.message||"Something went wrong!"; 
     return res.status(status).json({
         success:false,
         status,

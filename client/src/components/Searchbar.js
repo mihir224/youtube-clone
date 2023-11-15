@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
 import {setOpen,setUploadOpen} from "../redux/navbarSlice";
 import Upload from "./Upload";
+import axios from "axios";
 
 
 function Searchbar(){
@@ -28,9 +29,17 @@ function Searchbar(){
         backgroundSize:"40px",
         backgroundPosition:"-5px -2px"
     }
-    const handleLogout=(event)=>{
+    const handleLogout=async (event)=>{
         event.preventDefault();
-        dispatch(logout());
+        try{
+            const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
+            const res=await axios.post(`${url}/auth/logout`,{},{withCredentials:true});
+            console.log(res.data);
+            dispatch(logout());
+        }catch(err){
+            alert('something went wrong. try again!')
+            console.log(err);
+        }
     }
     const handleClick=(event)=>{
         navigate(`/search?q=${query}`);
