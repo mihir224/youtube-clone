@@ -12,7 +12,7 @@ function Home(props){
         setIsLoading(true);
         const fetchVideos=async()=>{
             const url=process.env.NODE_ENV==="production"?"https://youtube-clone-api224.onrender.com/api":"";
-            const res= await axios.get(`${url}/videos/${props.type}`);
+            const res= await axios.get(`${url}/videos/${props.type}`,{withCredentials:true});
             setVideos(res.data);
             setIsLoading(false);
         }
