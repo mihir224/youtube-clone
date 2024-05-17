@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Video from './components/Video';
 import Search from './components/Search';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from './components/Footer';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="signin" element={<SignIn/>}/>
       </Route>
     </Routes>
+    <Footer/>
     </div>
     
     </div>

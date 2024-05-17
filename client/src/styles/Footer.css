@@ -1,0 +1,11 @@
+#footer{
+    position:fixed;
+    display:inline-block;
+    color:white;
+    bottom:0;
+    right:0;
+    background-color: gray;
+    padding:5px;
+    border-top-left-radius: 4px;
+    font-family: monospace;
+}
